@@ -11,7 +11,7 @@ export default function GokulFinalWebsite() {
   // ★★★ YOUR ACTUAL GOKUL LOGO - INTEGRATED ★★★
   // Logo is now set to use your ImgBB link!
   // If you get the direct link (https://i.ibb.co/...), replace below:
-  const GOKUL_LOGO_DIRECT = "https://ibb.co/spFdSmkN";
+  const GOKUL_LOGO_DIRECT = "https://i.ibb.co/tpfhhyyy/Untitled-Design-236x214.png";
 
   const openViewer = (page) => {
     setCurrentPage(page);

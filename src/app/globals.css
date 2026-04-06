@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-saffron: #E8871A;
+  --color-brand-saffron-light: #F5A623;
+  --color-brand-gold: #C9922A;
+  --color-brand-crimson: #8B1A1A;
+  --color-brand-cream: #FCFAF7;
+  --color-brand-ivory: #FAF4E8;
+  --color-brand-dark: #1A1A1A;
+  --color-brand-brown-mid: #433422;
+  --color-brand-brown-light: #7E6B58;
+  --color-brand-border: #E5E1DA;
+
+  --font-sans: var(--font-sans), "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  body {
+    background-color: white;
+    color: var(--color-brand-dark);
+    font-family: var(--font-sans);
+  }
+  
+  ::selection {
+    background-color: var(--color-brand-crimson);
+    color: white;
+  }
+}
+
+@layer components {
+  /* ── Spacing System ── */
+  .section-spacing {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+  
+  .container-wide {
+    @apply max-w-[1320px] mx-auto px-5 md:px-10;
+  }
+
+  /* ── Commercial Typography ── */
+  .display-title {
+    @apply font-sans font-extrabold text-[40px] md:text-[56px] lg:text-[72px] leading-[1.05] tracking-tight text-brand-dark;
+  }
+  
+  .section-title {
+    @apply font-sans font-bold text-[32px] md:text-[44px] leading-[1.1] tracking-tight text-brand-dark;
+  }
+  
+  .card-title {
+    @apply font-sans font-bold text-[18px] md:text-[20px] leading-[1.2] text-brand-dark;
+  }
+  
+  .eyebrow {
+    @apply font-sans font-bold text-[12px] md:text-[13px] uppercase tracking-[0.1em] text-brand-crimson mb-4 block;
+  }
+
+  /* ── Standard Buttons ── */
+  .btn-commerce {
+    @apply inline-flex items-center justify-center font-sans font-bold px-8 py-4 rounded-sm transition-all duration-200 uppercase text-[14px] tracking-wide;
+  }
+
+  .btn-primary {
+    @apply bg-brand-crimson text-white hover:bg-[#C02626] shadow-sm;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-brand-dark text-brand-dark hover:bg-brand-dark hover:text-white bg-transparent;
+  }
+
+  .btn-whatsapp {
+    @apply bg-[#25D366] text-white hover:bg-[#1ebe5d] shadow-sm;
+  }
+}
+

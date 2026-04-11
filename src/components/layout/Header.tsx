@@ -85,7 +85,11 @@ export default function Header() {
               </div>
 
               {/* Cart Icon */}
-              <Link href="/cart" className="relative group flex items-center justify-center w-11 h-11 bg-brand-cream/50 hover:bg-brand-crimson/10 transition-colors rounded-full border border-brand-border/10">
+              <Link 
+                href="/cart" 
+                className="relative group flex items-center justify-center w-11 h-11 bg-brand-cream/50 hover:bg-brand-crimson/10 transition-colors rounded-full border border-brand-border/10"
+                aria-label={messages.common.cart}
+              >
                 <svg className="w-5.5 h-5.5 text-brand-dark group-hover:text-brand-crimson transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>

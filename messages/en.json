@@ -136,7 +136,9 @@
     "dietary": "Dietary",
     "refined": "Refined",
     "relatedTitle": "You Might Also Like",
-    "noProductsEmpty": "No products found yet. Check back soon!"
+    "noProductsEmpty": "No products found yet. Check back soon!",
+    "increaseQty": "Increase quantity",
+    "decreaseQty": "Decrease quantity"
   },
   "breadcrumb": {
     "home": "Home",
@@ -176,6 +178,7 @@
     "readMore": "Read More",
     "close": "Close",
     "menu": "Menu",
+    "cart": "Shopping Cart",
     "backToTop": "Back to Top"
   },
   "wholesale": {

@@ -165,6 +165,8 @@ export default function ProductDetailPage({ params }: Props) {
                       <button 
                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
                         className="w-11 h-11 flex items-center justify-center text-brand-dark hover:bg-white rounded-sm transition-all"
+                        aria-label={messages.product.decreaseQty}
+                        title={messages.product.decreaseQty}
                       >
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M20 12H4"/></svg>
                       </button>
@@ -174,6 +176,8 @@ export default function ProductDetailPage({ params }: Props) {
                       <button 
                         onClick={() => setQuantity(quantity + 1)}
                         className="w-11 h-11 flex items-center justify-center text-brand-dark hover:bg-white rounded-sm transition-all"
+                        aria-label={messages.product.increaseQty}
+                        title={messages.product.increaseQty}
                       >
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4"/></svg>
                       </button>

@@ -4,23 +4,34 @@ import React from "react";
 import { useCart } from "@/context/CartContext";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
+import { getProductBySlug } from "@/data/products";
+import { slugify } from "@/lib/utils";
+
 
 interface Props {
   items: any[];
 }
 
 export default function RepeatOrderButton({ items }: Props) {
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
   const router = useRouter();
   const { messages } = useLanguage();
 
   const handleRepeat = () => {
     items.forEach(item => {
-      // Re-map items to cart structure
-      addItem({
-        id: item.id,
-        productId: item.id, // Assuming id matches productId
-        productName: { en: item.name, hi: item.name }, // This is a limitation, but good enough for repeat
+      // 1. Try to derive base slug from item ID (id is usually slug-weight)
+      const parts = item.id.split("-");
+      parts.pop(); // Remove weight
+      const derivedSlug = parts.join("-");
+      
+      // 2. Try to fetch official product for better data
+      const officialProduct = getProductBySlug(derivedSlug);
+
+      // 3. Map to cart structure
+      addToCart({
+        productId: officialProduct?.id || derivedSlug,
+        productSlug: officialProduct?.slug || derivedSlug,
+        productName: officialProduct?.name || { en: item.name, hi: item.name },
         selectedWeight: item.weight,
         price: item.price,
         quantity: item.quantity

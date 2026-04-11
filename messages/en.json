@@ -227,7 +227,10 @@
     "item": "Item",
     "qty": "Qty",
     "total": "Total",
+    "orderConfirmed": "Order Confirmed",
     "whatsappContact": "Contact on WhatsApp",
+    "whatsappConfirm": "Confirm on WhatsApp",
+    "repeatOrder": "Repeat Order",
     "continueShopping": "Continue Shopping"
   },
   "trackOrder": {

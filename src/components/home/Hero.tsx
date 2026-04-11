@@ -3,72 +3,104 @@
 import Link from "next/link";
 import { SITE_CONFIG } from "@/lib/constants";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
+  const { messages } = useLanguage();
+
   return (
-    <section className="relative w-full bg-white pt-[140px] pb-16 md:pt-[180px] md:pb-24 overflow-hidden">
+    <section className="relative w-full bg-white pt-24 pb-12 md:pt-32 md:pb-24 overflow-hidden">
       <div className="container-wide">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           
           {/* ── TEXT CONTENT ── */}
-          <div className="w-full lg:w-3/5 flex flex-col items-center lg:items-start text-center lg:text-left z-10">
+          <div className="w-full lg:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-left z-10">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
             >
-              <span className="eyebrow !mb-4">
-                The Authentic Taste of Indore
+              <span className="eyebrow !mb-4 !text-brand-crimson">
+                {messages.hero.eyebrow}
               </span>
               
               <h1 className="display-title mb-6">
-                Premium Namkeen <span className="text-brand-crimson">&amp;</span> <br className="hidden md:block" /> 
-                Traditional Sweets
+                {messages.hero.title} <span className="text-brand-crimson">{messages.hero.titleHighlight}</span> <br className="hidden lg:block" /> 
+                {messages.hero.titleEnd}
               </h1>
 
-              <p className="font-sans text-[16px] md:text-[19px] text-[#444] leading-[1.6] max-w-[580px] mb-10 font-medium">
-                Handcrafted in pure desi ghee since 2000. Our timeless recipes bring the true, unchanged flavor of Indore to your home.
+              <p className="font-sans text-[16px] md:text-[18px] text-brand-dark/85 leading-relaxed max-w-[540px] mb-10 font-medium">
+                {messages.hero.subtitle}
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-4">
                 <Link 
                   href="/products" 
-                  className="btn-commerce btn-primary w-full sm:w-auto"
+                  className="btn-commerce btn-primary w-full sm:w-auto !py-4.5 !px-12 !text-[15px] !tracking-[0.15em] shadow-xl hover:-translate-y-1 transition-transform"
                 >
-                  Shop Collection
+                  {messages.hero.btnShop}
                 </Link>
+                <Link 
+                  href="/wholesale" 
+                  className="btn-commerce btn-secondary w-full sm:w-auto border-brand-dark/10 !py-4.5 !px-10 hover:border-brand-dark"
+                >
+                  {messages.wholesale.pageTitle}
+                </Link>
+              </div>
+              
+              <div className="mt-10 flex items-center justify-center lg:justify-start">
                 <a
                   href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(SITE_CONFIG.whatsappMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-commerce btn-secondary w-full sm:w-auto"
+                  className="group flex items-center gap-3 font-sans text-[12px] font-black uppercase tracking-widest text-[#25D366] hover:text-[#1ebe5d] transition-colors"
                 >
-                  Order on WhatsApp
+                  <div className="bg-[#25D366]/10 p-2 rounded-full group-hover:bg-[#25D366]/20 transition-all">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                  </div>
+                  {messages.hero.btnWhatsapp}
                 </a>
               </div>
             </motion.div>
           </div>
 
           {/* ── VISUAL BLOCK ── */}
-          <div className="w-full lg:w-2/5 relative">
+          <div className="w-full lg:w-[45%] relative mt-12 lg:mt-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative w-full aspect-[4/5] md:aspect-square bg-[#F8F6F2] rounded-sm overflow-hidden flex items-center justify-center border border-brand-border/30"
+              transition={{ duration: 0.8 }}
+              className="relative w-full aspect-square bg-white border border-brand-border/20 rounded-[8px] overflow-hidden flex items-center justify-center group shadow-2xl shadow-brand-dark/5"
             >
-              {/* Subtle brand pattern or logo watermark here in future */}
-              <div className="flex flex-col items-center justify-center opacity-20 scale-150">
-                 <div className="w-[120px] h-[80px] border-2 border-brand-dark rounded-full mb-2" />
-                 <span className="font-sans text-[9px] font-bold tracking-[0.3em] uppercase text-brand-dark">
-                   Visual Asset
-                 </span>
+              <div className="absolute inset-0 bg-brand-cream/30" />
+              
+              {/* Dynamic Heritage Visual - Layered Geometry */}
+              <div className="relative w-3/4 h-3/4 border-2 border-brand-dark/[0.03] rotate-45 flex items-center justify-center transition-transform duration-1000 group-hover:rotate-[135deg]">
+                <div className="w-full h-px bg-brand-dark/[0.05] absolute" />
+                <div className="h-full w-px bg-brand-dark/[0.05] absolute" />
+                <div className="w-2/3 h-2/3 border-[1.5px] border-brand-crimson/10 shadow-inner" />
+              </div>
+              
+              <div className="absolute flex flex-col items-center z-10">
+                 <div className="w-12 h-12 border-2 border-brand-crimson rotate-45 mb-6 flex items-center justify-center bg-white shadow-xl group-hover:bg-brand-crimson group-hover:border-white transition-colors duration-500">
+                    <div className="w-2 h-2 bg-brand-crimson group-hover:bg-white rotate-45" />
+                 </div>
+                 <span className="font-sans text-[13px] font-black tracking-[0.4em] uppercase text-brand-dark mb-2">Gokul Heritage</span>
+                 <div className="h-0.5 w-16 bg-brand-crimson/40" />
+              </div>
+
+              {/* Floating Decorative Elements - Corners */}
+              <div className="absolute top-0 right-0 p-12 translate-x-2 -translate-y-2">
+                 <div className="w-20 h-20 border-t-2 border-r-2 border-brand-crimson/20" />
+              </div>
+              <div className="absolute bottom-0 left-0 p-12 -translate-x-2 translate-y-2">
+                 <div className="w-20 h-20 border-b-2 border-l-2 border-brand-crimson/20" />
               </div>
             </motion.div>
             
-            {/* Soft decorative element to break the rigidness */}
-            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-brand-crimson/5 rounded-full blur-3xl -z-10" />
-            <div className="absolute -top-10 -right-10 w-48 h-48 bg-brand-saffron/5 rounded-full blur-3xl -z-10" />
+            {/* Ambient Background Accents */}
+            <div className="absolute -bottom-16 -right-16 w-80 h-80 bg-brand-crimson/5 rounded-full blur-[100px] -z-10" />
+            <div className="absolute -top-16 -left-16 w-80 h-80 bg-brand-gold/5 rounded-full blur-[120px] -z-10" />
           </div>
 
         </div>
@@ -76,4 +108,3 @@ export default function Hero() {
     </section>
   );
 }
-

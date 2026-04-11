@@ -4,8 +4,10 @@ import Link from "next/link";
 import { getBestsellerProducts } from "@/data/products";
 import ProductCard from "@/components/products/ProductCard";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function BestSellers() {
+  const { messages } = useLanguage();
   const products = getBestsellerProducts().slice(0, 4);
 
   return (
@@ -20,10 +22,10 @@ export default function BestSellers() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="eyebrow">Customer Favorites</span>
-            <h2 className="section-title">Our Best Sellers</h2>
+            <span className="eyebrow">{messages.bestSellers.eyebrow}</span>
+            <h2 className="section-title">{messages.bestSellers.title}</h2>
             <p className="font-sans text-[16px] text-[#555] font-medium max-w-[500px] mt-4">
-              The products our customers come back for again and again. Authentic, fresh, and Indori.
+              {messages.bestSellers.subtitle}
             </p>
           </motion.div>
           
@@ -37,7 +39,7 @@ export default function BestSellers() {
               href="/products" 
               className="group font-sans text-[14px] font-bold text-brand-crimson hover:text-brand-dark transition-colors flex items-center gap-2 uppercase tracking-widest"
             >
-              Shop All Namkeen
+              {messages.bestSellers.shopAll}
               <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
             </Link>
           </motion.div>
@@ -63,4 +65,3 @@ export default function BestSellers() {
     </section>
   );
 }
-

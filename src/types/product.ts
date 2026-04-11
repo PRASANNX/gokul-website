@@ -4,14 +4,20 @@ export interface WeightOption {
   originalPrice?: number;
 }
 
+// Bilingual string — slug is always derived from the English name
+export interface BilingualString {
+  en: string;
+  hi: string;
+}
+
 export interface Product {
   id: string;
-  name: string;
-  slug: string;
-  category: string;
+  name: BilingualString;
+  slug: string;          // always English-based, never changes
+  category: BilingualString;
   categorySlug: string;
-  shortDescription: string;
-  description: string;
+  shortDescription: BilingualString;
+  description: BilingualString;
   images: string[];
   weightOptions: WeightOption[];
   ingredients: string;

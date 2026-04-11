@@ -1,0 +1,239 @@
+{
+  "metadata": {
+    "home": { "title": "Home", "description": "Gokul Namkeen - Authentic Indore snacks and sweets." },
+    "about": { "title": "About Us", "description": "Our authentic Indore heritage story." },
+    "contact": { "title": "Contact", "description": "Get in touch with Gokul Namkeen." },
+    "faq": { "title": "FAQ", "description": "Frequently asked questions." },
+    "products": { "title": "All Products", "description": "Shop the finest premium namkeen and sweets." },
+    "bulkOrders": { "title": "Bulk Orders", "description": "Order Gokul snacks in wholesale for events." },
+    "giftPacks": { "title": "Gift Packs", "description": "Celebrate with the Gokul collection of hampers." },
+    "categories": { "title": "Categories", "description": "Shop our collections." }
+  },
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact",
+    "faq": "FAQ & Help",
+    "bulkOrders": "Bulk Orders",
+    "giftPacks": "Gift Packs",
+    "support": "Support",
+    "orderOnline": "Order Online"
+  },
+  "promo": {
+    "banner": "Indore's Shahi Heritage delivered across India"
+  },
+  "hero": {
+    "eyebrow": "The Authentic Taste of Indore",
+    "title": "Premium Namkeen",
+    "titleHighlight": "&",
+    "titleEnd": "Traditional Sweets",
+    "subtitle": "Handcrafted with premium ingredients since 1996. Our timeless recipes bring the true, unchanged flavor of Indore to your home.",
+    "btnShop": "Shop Collection",
+    "btnWhatsapp": "Order on WhatsApp"
+  },
+  "categories": {
+    "eyebrow": "Explore Our Ranges",
+    "title": "Shop by Category",
+    "subtitle": "From Indore's famous Ratlami Sev to traditional handmade sweets, browse our signature categories.",
+    "viewAll": "View All Products",
+    "varieties": "Varieties",
+    "signatureCollection": "Signature Collection"
+  },
+  "bestSellers": {
+    "eyebrow": "Customer Favorites",
+    "title": "Our Best Sellers",
+    "subtitle": "The products our customers come back for again and again. Authentic, fresh, and Indori.",
+    "shopAll": "Shop All Namkeen"
+  },
+  "whyChooseUs": {
+    "eyebrow": "The Gokul Promise",
+    "title": "Why Customers Trust Us",
+    "subtitle": "For over two decades, we have been Indore's preferred choice for authentic snacking, centered on purity and traditional craftsmanship.",
+    "features": {
+      "ghee": {
+        "title": "Premium Ingredients",
+        "desc": "Handcrafted authenticity in every bite."
+      },
+      "preservatives": {
+        "title": "No Preservatives",
+        "desc": "100% natural ingredients, zero additives."
+      },
+      "fresh": {
+        "title": "Freshly Made",
+        "desc": "Batches prepared daily for peak freshness."
+      },
+      "shipping": {
+        "title": "Pan-India Shipping",
+        "desc": "Delivering Indori taste to your doorstep."
+      }
+    },
+    "stats": {
+      "years": "Years of Legacy",
+      "products": "Product Varieties",
+      "families": "Happy Households",
+      "delivery": "Fast Delivery"
+    }
+  },
+  "brandStory": {
+    "eyebrow": "Our Indore Heritage",
+    "title": "A Legacy of Taste Since 1996",
+    "para1": "Gokul ke Shahi Namkeen was born in the heart of Indore. What started as a small family kitchen in 1996 has grown into one of the city's most trusted destinations for authentic namkeen and traditional sweets.",
+    "para2": "Every batch is made with select premium ingredients, honoring the recipes passed down through generations. We believe in quality you can taste and traditions you can trust.",
+    "points": [
+      "Family-run for 20+ years",
+      "FSSAI certified master kitchen",
+      "Authentic Indori recipes",
+      "Pan-India doorstep delivery"
+    ],
+    "btnStory": "Our Full Story"
+  },
+  "testimonials": {
+    "eyebrow": "Customer Voices",
+    "title": "What Our Families Say",
+    "subtitle": "Real reviews from families across India who trust Gokul Namkeen for daily snacking and festive gifting."
+  },
+  "cta": {
+    "title": "Experience the True",
+    "titleLine2": "Taste of Indore",
+    "subtitle": "Whether it's a daily snack or a festive gift, bring home the purity of Shahi Namkeen handcrafted with love.",
+    "btnShop": "Shop Full Collection",
+    "btnWhatsapp": "Order on WhatsApp",
+    "trust1": "Trusted since 1996",
+    "trust2": "Premium Ingredients",
+    "trust3": "Fast Pan-India Delivery"
+  },
+  "footer": {
+    "tagline": "Authentic handcrafted namkeen & sweets from Indore — made with premium quality since 1996.",
+    "explore": "Explore",
+    "categories": "Categories",
+    "contactUs": "Contact Us",
+    "office": "Office",
+    "direct": "Direct",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "copyright": "Gokul ke Shahi Namkeen INDORE"
+  },
+  "products": {
+    "pageTitle": "Fresh from Indore",
+    "pageSubtitle": "Handcrafted with premium quality and legacy recipes. Explore our curated range of authentic namkeen, sweets, and celebration packs.",
+    "shopAll": "Shop All",
+    "showing": "Showing",
+    "signatureItems": "Signature items",
+    "productsIn": "Products in this Category",
+    "filterAll": "All"
+  },
+  "product": {
+    "bestseller": "Bestseller",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock",
+    "limited": "Limited Stock",
+    "addToCart": "Add to Shopping Cart",
+    "orderWhatsapp": "Order via WhatsApp",
+    "selectPackSize": "Select Pack Size",
+    "ingredients": "Ingredients",
+    "shelfLife": "Shelf Life",
+    "dietary": "Dietary",
+    "refined": "Refined",
+    "relatedTitle": "You Might Also Like",
+    "noProductsEmpty": "No products found yet. Check back soon!"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "shop": "Shop",
+    "products": "Products"
+  },
+  "about": {
+    "eyebrow": "Our Story",
+    "title": "About Gokul ke Shahi Namkeen",
+    "subtitle": "A family legacy of authentic flavours from the heart of Indore, crafted with love since 1996."
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "We'd love to hear from you. Reach us on WhatsApp or visit us in Indore.",
+    "whatsappLabel": "Chat on WhatsApp",
+    "phoneLabel": "Call Us",
+    "addressLabel": "Visit Us",
+    "emailLabel": "Email"
+  },
+  "bulkOrders": {
+    "title": "Bulk Orders",
+    "subtitle": "Planning for a wedding, corporate event, or festive gifting? We offer customised bulk packs.",
+    "cta": "Request a Quote"
+  },
+  "giftPacks": {
+    "title": "Gift Packs",
+    "subtitle": "Curated gift boxes of premium namkeen — perfect for every occasion.",
+    "cta": "Explore Gift Packs"
+  },
+  "faq": {
+    "title": "FAQ & Help",
+    "subtitle": "Answers to frequently asked questions about our products, delivery, and orders."
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "readMore": "Read More",
+    "close": "Close",
+    "menu": "Menu",
+    "backToTop": "Back to Top"
+  },
+  "wholesale": {
+    "btnInquiry": "Bulk Order on WhatsApp",
+    "orderWhatsapp": "Order via WhatsApp",
+    "btnCartonRate": "Get Carton Price",
+    "btnCall": "Call for Bulk Rates",
+    "pageTitle": "Wholesale & Business",
+    "pageSubtitle": "Direct factory supply for distributors and retailers. Authentic Indore taste at competitive carton rates.",
+    "businessFormTitle": "Business Inquiry",
+    "trustTitle": "Partner with Gokul",
+    "trustDesc1": "Authentic Indori Quality since 1996",
+    "trustDesc2": "Distributor-First Pricing for high margins",
+    "trustDesc3": "Fresh inventory with direct factory dispatch",
+    "moqTitle": "Carton Packing & MOQ",
+    "moqDesc": "We supply in standard carton packing. Minimum Order Quantity (MOQ) applies for special wholesale rates. Contact us directly for current market rates."
+  },
+  "checkout": {
+    "title": "Checkout",
+    "customerDetails": "Customer Details",
+    "fullName": "Full Name",
+    "phone": "Phone Number",
+    "city": "City",
+    "address": "Full Address",
+    "pincode": "Pincode",
+    "paymentMethod": "Payment Method",
+    "onlinePayment": "Online Payment (Razorpay)",
+    "cod": "Cash on Delivery",
+    "orderSummary": "Order Summary",
+    "shipping": "Shipping",
+    "free": "FREE",
+    "freeShippingLabel": "Free PAN-India Shipping",
+    "minOrderError": "Minimum order value is ₹",
+    "maxCodError": "COD not available for orders above ₹",
+    "placeOrder": "Place Order",
+    "processing": "Processing...",
+    "emptyCart": "Your cart is empty. Please add items before checking out.",
+    "validationError": "Please fill all required fields correctly."
+  },
+  "orderSuccess": {
+    "thankYou": "Thank You for Your Order!",
+    "message": "Your order has been placed successfully. We will contact you soon.",
+    "orderId": "Order ID",
+    "paymentMethod": "Payment Method",
+    "summary": "Order Summary",
+    "item": "Item",
+    "qty": "Qty",
+    "total": "Total",
+    "whatsappContact": "Contact on WhatsApp",
+    "continueShopping": "Continue Shopping"
+  },
+  "trackOrder": {
+    "title": "Track Your Order",
+    "subtitle": "Enter your Order ID and Phone Number to check status.",
+    "orderIdLabel": "Order ID (e.g., GOKUL-...)",
+    "phoneLabel": "Phone Number",
+    "btnTrack": "Track Status",
+    "noOrder": "No order found with these details.",
+    "status": "Current Status"
+  }
+}

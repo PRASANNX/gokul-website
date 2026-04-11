@@ -1,6 +1,7 @@
 "use client";
 
 import { categories } from "@/data/categories";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface CategoryFilterProps {
   selected: string;
@@ -8,33 +9,40 @@ interface CategoryFilterProps {
 }
 
 export default function CategoryFilter({ selected, onChange }: CategoryFilterProps) {
-  return (
-    <div className="flex flex-wrap gap-4 md:gap-7">
-      <button
-        onClick={() => onChange("all")}
-        className={`px-0 py-2 border-b-2 font-sans text-[12px] font-bold uppercase tracking-[0.2em] transition-all duration-300 ${
-          selected === "all"
-            ? "border-brand-crimson text-brand-crimson"
-            : "border-transparent text-brand-dark/40 hover:text-brand-dark"
-        }`}
-      >
-        All
-      </button>
+  const { messages, lang } = useLanguage();
 
-      {categories.map((category) => (
+  return (
+    <div className="relative w-full overflow-hidden">
+      {/* Scrollable Container */}
+      <div className="flex items-center gap-2 md:gap-3 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-4 -mb-4">
         <button
-          key={category.slug}
-          onClick={() => onChange(category.slug)}
-          className={`px-0 py-2 border-b-2 font-sans text-[12px] font-bold uppercase tracking-[0.2em] transition-all duration-300 ${
-            selected === category.slug
-              ? "border-brand-crimson text-brand-crimson"
-              : "border-transparent text-brand-dark/40 hover:text-brand-dark"
+          onClick={() => onChange("all")}
+          className={`shrink-0 snap-start px-6 py-3.5 rounded-full font-sans text-[13px] md:text-[14px] font-black uppercase tracking-widest transition-all duration-300 border ${
+            selected === "all"
+              ? "bg-brand-crimson border-brand-crimson text-brand-dark shadow-md"
+              : "bg-white border-brand-border/20 text-brand-dark/85 hover:border-brand-crimson/30"
           }`}
         >
-          {category.name}
+          {messages.products.filterAll}
         </button>
-      ))}
+
+        {categories.map((category) => (
+          <button
+            key={category.slug}
+            onClick={() => onChange(category.slug)}
+            className={`shrink-0 snap-start px-6 py-3.5 rounded-full font-sans text-[13px] md:text-[14px] font-black uppercase tracking-widest transition-all duration-300 border ${
+              selected === category.slug
+                ? "bg-brand-crimson border-brand-crimson text-brand-dark shadow-md"
+                : "bg-white border-brand-border/20 text-brand-dark/85 hover:border-brand-crimson/30"
+            }`}
+          >
+            {category.name[lang]}
+          </button>
+        ))}
+      </div>
+      
+      {/* Subtle fade edges for overflow */}
+      <div className="hidden md:block absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#FAF9F6] to-transparent pointer-events-none" />
     </div>
   );
 }
-

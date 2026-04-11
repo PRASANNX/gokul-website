@@ -1,13 +1,14 @@
 "use client";
 
-import type { Metadata } from "next";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+import BilingualSEO from "@/components/common/BilingualSEO";
 
 const faqs = [
   {
-    q: "Are your products made with pure ghee?",
-    a: "Absolutely. Every single product at Gokul Namkeen is made with 100% pure desi cow ghee. We never use refined oil, dalda, or any hydrogenated fat.",
+    q: "What kind of ingredients do you use?",
+    a: "We use only the highest quality, premium ingredients sourced daily. Our recipes are completely free from refined oils, dalda, and hydrogenated fats, ensuring a rich and authentic taste.",
   },
   {
     q: "Do you add preservatives or artificial colours?",
@@ -32,14 +33,17 @@ const faqs = [
 ];
 
 export default function FAQPage() {
+  const { messages } = useLanguage();
+
   return (
     <main className="bg-[#FAF9F6] min-h-screen">
+      <BilingualSEO pageKey="faq" />
       
       {/* ── HEADER ── */}
       <section className="pt-32 pb-12 md:pt-40 md:pb-20 border-b border-brand-border/5">
         <div className="container-wide">
           <div className="mb-0 opacity-50">
-            <Breadcrumb items={[{ label: "Support" }, { label: "FAQ" }]} />
+            <Breadcrumb items={[{ label: messages.nav.support }, { label: messages.faq.title }]} />
           </div>
           
           <div className="max-w-[700px] mt-8">
@@ -49,11 +53,10 @@ export default function FAQPage() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="display-title mb-6">
-                Frequently Asked <br />
-                <span className="text-brand-crimson">Questions</span>
+                {messages.faq.title}
               </h1>
               <p className="font-sans text-[16px] md:text-[18px] text-brand-dark/70 leading-relaxed font-medium">
-                Everything you need to know about our products, Indore shipping, and wholesale orders.
+                {messages.faq.subtitle}
               </p>
             </motion.div>
           </div>
@@ -83,7 +86,7 @@ export default function FAQPage() {
                        </svg>
                     </div>
                   </summary>
-                  <div className="px-6 md:px-8 pb-8 pt-0 font-sans text-[15px] md:text-[16px] text-brand-dark/60 font-medium leading-[1.8] max-w-[700px]">
+                  <div className="px-6 md:px-8 pb-8 pt-0 font-sans text-[15px] md:text-[16px] text-brand-dark/85 font-medium leading-[1.8] max-w-[700px]">
                     {faq.a}
                   </div>
                 </details>
@@ -95,4 +98,3 @@ export default function FAQPage() {
     </main>
   );
 }
-

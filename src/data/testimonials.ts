@@ -33,7 +33,7 @@ export const testimonials: Testimonial[] = [
     location: "Indore, MP",
     rating: 5,
     review:
-      "Gokul's rawa ladoo is unmatched in the city. We've been buying from them for over 15 years. Pure ghee, no shortcuts. A true family tradition!",
+      "Gokul's rawa ladoo is unmatched in the city. We've been buying from them for over 15 years. Pure ingredients, no shortcuts. A true family tradition!",
     date: "February 2025",
   },
   {

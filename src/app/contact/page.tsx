@@ -4,16 +4,21 @@ import type { Metadata } from "next";
 import { SITE_CONFIG } from "@/lib/constants";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+import BilingualSEO from "@/components/common/BilingualSEO";
 
 export default function ContactPage() {
+  const { messages } = useLanguage();
+
   return (
     <main className="bg-[#FAF9F6] min-h-screen">
+      <BilingualSEO pageKey="contact" />
       
       {/* ── HEADER ── */}
       <section className="pt-32 pb-12 md:pt-40 md:pb-20">
         <div className="container-wide">
           <div className="mb-8 opacity-50">
-            <Breadcrumb items={[{ label: "Contact" }]} />
+            <Breadcrumb items={[{ label: messages.nav.contact }]} />
           </div>
           
           <div className="max-w-[800px]">
@@ -22,13 +27,11 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="eyebrow shadow-none mb-6">Get in Touch</span>
               <h1 className="display-title mb-8">
-                We&apos;re Here to <br className="hidden md:block" />
-                <span className="text-brand-crimson">Help You Taste Indore</span>
+                {messages.contact.title}
               </h1>
               <p className="font-sans text-[18px] md:text-[20px] text-brand-dark/70 leading-relaxed font-medium">
-                Have a question, want to place an order, or need help with a bulk enquiry? We&apos;re just a message away.
+                {messages.contact.subtitle}
               </p>
             </motion.div>
           </div>
@@ -44,9 +47,9 @@ export default function ContactPage() {
             <div className="lg:col-span-2">
               <div className="space-y-12">
                 {[
-                  { title: "Visit Our Store", detail: SITE_CONFIG.address, label: "Address" },
-                  { title: "Call Our Support", detail: SITE_CONFIG.phone, label: "Phone", href: `tel:${SITE_CONFIG.phone}` },
-                  { title: "Write to Us", detail: SITE_CONFIG.email, label: "Email", href: `mailto:${SITE_CONFIG.email}` },
+                  { title: messages.contact.addressLabel, detail: SITE_CONFIG.address, label: "Address" },
+                  { title: messages.contact.phoneLabel, detail: SITE_CONFIG.phone, label: "Phone", href: `tel:${SITE_CONFIG.phone}` },
+                  { title: messages.contact.emailLabel, detail: SITE_CONFIG.email, label: "Email", href: `mailto:${SITE_CONFIG.email}` },
                 ].map((c, i) => (
                   <motion.div 
                     key={c.title}
@@ -81,7 +84,7 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className="btn-commerce btn-whatsapp w-full sm:w-auto"
                   >
-                    Quick WhatsApp Chat
+                    {messages.contact.whatsappLabel}
                   </a>
                 </div>
               </div>
@@ -99,22 +102,22 @@ export default function ContactPage() {
                 <form className="space-y-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="flex flex-col gap-2">
-                      <label className="text-[10px] font-bold uppercase tracking-widest text-brand-dark/40">Full Name</label>
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-brand-dark/70">Full Name</label>
                       <input type="text" className="bg-[#FAF9F6] border-none py-4 px-5 font-sans text-[15px] font-bold text-brand-dark focus:ring-1 focus:ring-brand-crimson" placeholder="Enter your name" />
                     </div>
                     <div className="flex flex-col gap-2">
-                      <label className="text-[10px] font-bold uppercase tracking-widest text-brand-dark/40">Phone Number</label>
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-brand-dark/70">Phone Number</label>
                       <input type="tel" className="bg-[#FAF9F6] border-none py-4 px-5 font-sans text-[15px] font-bold text-brand-dark focus:ring-1 focus:ring-brand-crimson" placeholder="+91 XXXXX XXXXX" />
                     </div>
                   </div>
                   
                   <div className="flex flex-col gap-2">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-brand-dark/40">Email Address</label>
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-brand-dark/70">Email Address</label>
                     <input type="email" className="bg-[#FAF9F6] border-none py-4 px-5 font-sans text-[15px] font-bold text-brand-dark focus:ring-1 focus:ring-brand-crimson" placeholder="you@example.com" />
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-brand-dark/40">Your Message</label>
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-brand-dark/70">Your Message</label>
                     <textarea rows={5} className="bg-[#FAF9F6] border-none py-4 px-5 font-sans text-[15px] font-bold text-brand-dark focus:ring-1 focus:ring-brand-crimson resize-none" placeholder="Tell us how we can help..." />
                   </div>
 
@@ -131,4 +134,3 @@ export default function ContactPage() {
     </main>
   );
 }
-

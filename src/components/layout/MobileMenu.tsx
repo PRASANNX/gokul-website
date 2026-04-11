@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
+import { SITE_CONFIG } from "@/lib/constants";
 import WhatsAppCTA from "@/components/common/WhatsAppCTA";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -12,6 +13,15 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+  const { messages } = useLanguage();
+
+  const navLinks = [
+    { label: messages.nav.home,     href: "/" },
+    { label: messages.nav.products, href: "/products" },
+    { label: messages.nav.about,    href: "/about" },
+    { label: messages.nav.contact,  href: "/contact" },
+  ];
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -31,21 +41,37 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           className="absolute top-full left-0 right-0 bg-white border-b border-brand-border overflow-hidden lg:hidden"
         >
           <nav className="flex flex-col">
-            {NAV_LINKS.map((link) => (
+            {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={onClose}
-                className="py-4 px-6 text-[16px] font-medium text-brand-dark border-b border-[#F0E6D3] hover:bg-brand-cream hover:text-brand-saffron transition-colors"
+                className="py-4 px-6 text-[15px] font-bold text-brand-dark border-b border-brand-border/5 uppercase tracking-widest"
               >
                 {link.label}
               </Link>
             ))}
-            <div className="p-6 bg-brand-cream/30">
+            <Link
+              href="/wholesale"
+              onClick={onClose}
+              className="py-4 px-6 text-[15px] font-bold text-brand-crimson border-b border-brand-border/5 uppercase tracking-widest"
+            >
+              {messages.wholesale?.btnInquiry}
+            </Link>
+            <div className="p-6 space-y-4">
+              <a 
+                href={`tel:${SITE_CONFIG.phone}`}
+                className="btn-commerce btn-secondary w-full justify-center gap-3 !py-4"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                {messages.contact.phoneLabel}
+              </a>
               <WhatsAppCTA 
-                label="Order on WhatsApp" 
+                label={messages.hero.btnWhatsapp} 
                 size="lg" 
-                className="w-full justify-center !text-[15px]" 
+                className="w-full justify-center !text-[14px]" 
               />
             </div>
           </nav>

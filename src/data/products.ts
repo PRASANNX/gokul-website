@@ -1,76 +1,178 @@
 import { Product } from "@/types/product";
 import { slugify } from "@/lib/utils";
 
+// ─── Category name maps ────────────────────────────────────────────────────────
+
+const CAT_NAMES: Record<string, { en: string; hi: string }> = {
+  namkeen:  { en: "Namkeen",          hi: "नमकीन" },
+  mixture:  { en: "Mixture",          hi: "मिक्सचर" },
+  fariyali: { en: "Fasting Snacks",   hi: "फरियाली" },
+  dal:      { en: "Dal & Dana",       hi: "दाल एवं दाने" },
+  maida:    { en: "Maida Items",      hi: "मैदा आइटम" },
+  biscuits: { en: "Biscuits & Chakli",hi: "बिस्किट और चकली" },
+  other:    { en: "Other Snacks",     hi: "अन्य स्नैक्स" },
+};
+
+// ─── Helper ────────────────────────────────────────────────────────────────────
+
 const generateBaseProduct = (
-  name: string,
+  nameEn: string,
+  nameHi: string,
   categorySlug: string,
-  categoryName: string,
   bestseller: boolean = false,
-  customDesc?: string
-): Product => ({
-  id: slugify(name),
-  name,
-  slug: slugify(name),
-  category: categoryName,
-  categorySlug,
-  shortDescription: customDesc || `Enjoy the authentic taste of Gokul's ${name}. Made fresh daily.`,
-  description: `Gokul ke Shahi Namkeen brings you the finest ${name}, prepared with traditional recipes and 100% pure ingredients. Handcrafted in Indore for that perfect crunch and flavour.`,
-  ingredients: "Gram flour, Edible Oil, Spices, Condiments, Salt",
-  shelfLife: "30-45 Days",
-  images: [`/images/products/${slugify(name)}.jpg`],
-  bestseller,
-  availability: "in-stock",
-  tags: [categorySlug, "Indore Special", "Fresh"],
-  weightOptions: [
-    { weight: "250g", price: 120 },
-    { weight: "500g", price: 230 },
-    { weight: "1kg", price: 450 },
-  ],
-  rating: bestseller ? 4.9 : 4.6,
-  reviewCount: bestseller ? 124 : 45,
-});
+  descEn?: string,
+  descHi?: string
+): Product => {
+  const cat = CAT_NAMES[categorySlug];
+  return {
+    id: slugify(nameEn),
+    name: { en: nameEn, hi: nameHi },
+    slug: slugify(nameEn),                          // always English slug
+    category: cat,
+    categorySlug,
+    shortDescription: {
+      en: descEn || `Enjoy the authentic taste of Gokul's ${nameEn}. Made fresh daily.`,
+      hi: descHi || `गोकुल के ${nameHi} का प्रामाणिक स्वाद लें। रोज़ाना ताज़ा बना।`,
+    },
+    description: {
+      en: `Gokul ke Shahi Namkeen brings you the finest ${nameEn}, prepared with traditional recipes and 100% pure ingredients. Handcrafted in Indore for that perfect crunch and flavour.`,
+      hi: `गोकुल के शाही नमकीन आपके लिए सबसे बेहतरीन ${nameHi} लाते हैं, जो पारंपरिक रेसिपी और 100% शुद्ध सामग्री से बना है। इंदौर में हस्तनिर्मित — एकदम सही कुरकुरापन और स्वाद।`,
+    },
+    ingredients: "Gram flour, Edible Oil, Spices, Condiments, Salt",
+    shelfLife: "30-45 Days",
+    images: [`/images/products/${slugify(nameEn)}.jpg`],
+    bestseller,
+    availability: "in-stock",
+    tags: [categorySlug, "Indore Special", "Fresh"],
+    weightOptions: [
+      { weight: "250g", price: 120 },
+      { weight: "500g", price: 230 },
+      { weight: "1kg",  price: 450 },
+    ],
+    rating: bestseller ? 4.9 : 4.6,
+    reviewCount: bestseller ? 124 : 45,
+  };
+};
+
+// ─── Products ─────────────────────────────────────────────────────────────────
 
 export const products: Product[] = [
   // ── NAMKEEN ──
-  generateBaseProduct("Ratlami Sev", "namkeen", "नमकीन", true, "Famous Indore-style spicy sev, thick and full of traditional spices."),
-  generateBaseProduct("Lagli Sev", "namkeen", "नमकीन", true, "Crispy and light, perfect for everyday snacking."),
-  generateBaseProduct("Ujjaini Sev", "namkeen", "नमकीन", false, "Medium spicy sev with a unique Ujjaini flavour profile."),
-  generateBaseProduct("Aloo Bhujiya", "namkeen", "नमकीन", false, "Classic crispy potato and gram flour strings."),
-  generateBaseProduct("Lahsun Sev", "namkeen", "नमकीन", true, "Garlic flavoured sev, a beloved Indore classic."),
+  generateBaseProduct("Ratlami Sev",         "रतलामी सेव",          "namkeen", true,  "Famous Indore-style spicy sev, thick and full of traditional spices.", "प्रसिद्ध इंदौर-शैली का मसालेदार मोटा सेव — पारंपरिक मसालों से भरपूर।"),
+  generateBaseProduct("Laung Sev",           "लौंग सेव",            "namkeen", true,  "Crispy and light, perfect for everyday snacking.", "कुरकुरा और हल्का — रोज़ के स्नैकिंग के लिए एकदम सही।"),
+  generateBaseProduct("Doodhiya Sev",        "दूधिया सेव",          "namkeen", false, "A lighter sev variety with a mild and comforting flavour.", "हल्के और आरामदायक स्वाद वाली सेव की किस्म।"),
+  generateBaseProduct("Rajasthani Kadak Sev","राजस्थानी कड़क सेव",  "namkeen", false, "Bold, crunchy sev with a classic Rajasthani-style bite.", "क्लासिक राजस्थानी अंदाज़ में बोल्ड और कुरकुरा सेव।"),
+  generateBaseProduct("Ujjaini Sev",         "उज्जैनी सेव",         "namkeen", false, "Medium spicy sev with a unique Ujjaini flavour profile.", "मध्यम मसालेदार सेव — अनोखे उज्जैनी स्वाद के साथ।"),
+  generateBaseProduct("Aloo Bhujiya",        "आलू भुजिया",          "namkeen", true,  "Classic crispy potato and gram flour strings.", "क्लासिक कुरकुरा आलू और बेसन की भुजिया।"),
+  generateBaseProduct("Lahsun Sev",          "लहसुन सेव",           "namkeen", true,  "Garlic flavoured sev, a beloved Indore classic.", "लहसुन के स्वाद वाला सेव — इंदौर का प्रिय क्लासिक।"),
+  generateBaseProduct("Tamatar Sev",         "टमाटर सेव",           "namkeen", false, "Tangy tomato-flavoured sev with a chatpata twist.", "चटपटे अंदाज़ में तीखी टमाटर-स्वाद वाली सेव।"),
+  generateBaseProduct("Soya Sev",            "सोया सेव",            "namkeen", false, "Crispy sev variation with a rich soya-based texture.", "सोया-आधारित बनावट के साथ कुरकुरी सेव।"),
+  generateBaseProduct("Kashmiri Sev",        "कश्मीरी सेव",         "namkeen", false, "A spiced sev with a richer masala profile.", "समृद्ध मसाला प्रोफाइल के साथ एक मसालेदार सेव।"),
+  generateBaseProduct("Zero Number Fiki",    "जीरो नंबर फीकी",      "namkeen", false, "Very fine, mild sev ideal for light snacking.", "बेहद महीन, हल्की सेव — लाइट स्नैकिंग के लिए।"),
+  generateBaseProduct("Barik Sev",           "बारीक सेव",           "namkeen", false, "Thin sev with a delicate crunch and classic seasoning.", "पतली सेव — नाज़ुक कुरकुराहट और क्लासिक मसाले के साथ।"),
+  generateBaseProduct("Palak Sev",           "पालक सेव",            "namkeen", false, "Spinach-flavoured sev with a savoury herbal note.", "पालक के स्वाद वाली सेव — स्वादिष्ट हर्बल नोट के साथ।"),
 
   // ── MIXTURE ──
-  generateBaseProduct("Khatta Meetha Mixture", "mixture", "मिक्सचर", true, "Sweet and tangy classic mix with peanuts and peas."),
-  generateBaseProduct("Charkha Mixture", "mixture", "मिक्सचर", false, "Spicy traditional mixture for tea time."),
-  generateBaseProduct("Gokul Mix", "mixture", "मिक्सचर", true, "Our signature house blend of premium namkeens."),
-  generateBaseProduct("Makka Mixture", "mixture", "मिक्सचर", false, "Corn-based crispy mixture with a delightful crunch."),
+  generateBaseProduct("Khatta Meetha Mixture", "खट्टा मीठा मिक्सचर", "mixture", true,  "Sweet and tangy classic mix with peanuts and peas.", "मूंगफली और मटर के साथ मीठा और तीखा क्लासिक मिक्स।"),
+  generateBaseProduct("Charkha Mixture",       "चरखा मिक्सचर",       "mixture", true,  "Spicy traditional mixture for tea time.", "चाय के समय के लिए मसालेदार पारंपरिक मिक्सचर।"),
+  generateBaseProduct("Gokul Mix",             "गोकुल मिक्स",         "mixture", true,  "Our signature house blend of premium namkeens.", "हमारा सिग्नेचर हाउस ब्लेंड — प्रीमियम नमकीन का मिश्रण।"),
+  generateBaseProduct("Madrasi Mixture",       "मद्रासी मिक्सचर",    "mixture", false, "South-style spicy mixture packed with crunch and flavour.", "दक्षिण शैली का मसालेदार मिक्सचर — कुरकुरापन और स्वाद से भरपूर।"),
+  generateBaseProduct("Mogar Mixture",         "मोगर मिक्सचर",       "mixture", false, "A crunchy mix featuring dal and traditional spices.", "दाल और पारंपरिक मसालों के साथ कुरकुरा मिक्सचर।"),
+  generateBaseProduct("Malvi Mixture",         "मालवी मिक्सचर",      "mixture", false, "Regional Malwa-style mixture with balanced spice.", "संतुलित मसाले के साथ मालवा-शैली का क्षेत्रीय मिक्सचर।"),
+  generateBaseProduct("Gujarati Mixture",      "गुजराती मिक्सचर",    "mixture", false, "A sweeter and lighter mixture inspired by Gujarati taste.", "गुजराती स्वाद से प्रेरित मीठा और हल्का मिक्सचर।"),
+  generateBaseProduct("Gujarati Papad Mixture","गुजराती पापड़ मिक्सचर","mixture", false, "Crunchy papad-based mixture with a Gujarati-style flavour profile.", "गुजराती शैली के स्वाद के साथ पापड़-आधारित मिक्सचर।"),
+  generateBaseProduct("Makka Mixture",         "मक्का मिक्सचर",      "mixture", false, "Corn-based crispy mixture with a delightful crunch.", "मक्के-आधारित कुरकुरा मिक्सचर।"),
+  generateBaseProduct("Hing Mixture",          "हींग मिक्सचर",       "mixture", false, "Aromatic mixture flavoured with hing for a classic savoury finish.", "हींग के स्वाद वाला सुगंधित मिक्सचर।"),
 
   // ── FARIYALI ──
-  generateBaseProduct("Rajgira Gud Ladoo", "fariyali", "फरियाली", true, "Perfect sweet for fasting, made with amaranth and jaggery."),
-  generateBaseProduct("Meetha Aloo Fariyali", "fariyali", "फरियाली", false, "Sweet potato sticks perfect for vrat/upvas."),
-  generateBaseProduct("Kali Mirch Chips Patli", "fariyali", "फरियाली", false, "Thin potato chips seasoned with black pepper and sendha namak."),
-  generateBaseProduct("Sabudana Meetha Fariyali", "fariyali", "फरियाली", true, "Sweet and crunchy sago mixture."),
+  generateBaseProduct("Meetha Aloo Fariyali",      "मीठा आलू फरियाली",       "fariyali", false, "Sweet potato sticks perfect for vrat/upvas.", "व्रत/उपवास के लिए एकदम सही मीठे आलू की स्टिक।"),
+  generateBaseProduct("Dhaniya Papdi",             "धनिया पापड़ी",           "fariyali", false, "Fasting-friendly crispy papdi flavoured with coriander.", "उपवास के लिए धनिया के स्वाद वाली कुरकुरी पापड़ी।"),
+  generateBaseProduct("Moti Salted Chips",         "मोटी नमकीन चिप्स",      "fariyali", false, "Thick salted potato chips with a hearty crunch.", "भरपूर कुरकुराहट वाली मोटी नमकीन चिप्स।"),
+  generateBaseProduct("Patli Chatpata Aloo Fariyali","पतली चटपटी आलू फरियाली", "fariyali", false, "Thin fasting chips with a spicy and tangy flavour.", "मसालेदार और चटपटे स्वाद वाली पतली उपवास चिप्स।"),
+  generateBaseProduct("Charkhi Papdi",             "चरखी पापड़ी",            "fariyali", false, "Crispy spiral papdi ideal for vrat snacking.", "व्रत स्नैकिंग के लिए कुरकुरी सर्पिल पापड़ी।"),
+  generateBaseProduct("Moti Lal Mirch Chips",      "मोटी लाल मिर्च चिप्स",  "fariyali", false, "Thick-cut chips seasoned with bold red chilli.", "बोल्ड लाल मिर्च के साथ मोटी कटी चिप्स।"),
+  generateBaseProduct("Sabudana Meetha Fariyali",  "साबूदाना मीठा फरियाली", "fariyali", true,  "Sweet and crunchy sago mixture.", "मीठा और कुरकुरा साबूदाना मिक्सचर।"),
+  generateBaseProduct("Uncle Chips",               "अंकल चिप्स",             "fariyali", false, "Classic-style fasting chips with simple seasoning.", "सादे मसाले के साथ क्लासिक उपवास चिप्स।"),
+  generateBaseProduct("Kali Mirch Chips Patli",    "काली मिर्च चिप्स पतली", "fariyali", true,  "Thin potato chips seasoned with black pepper and sendha namak.", "काली मिर्च और सेंधा नमक के साथ पतली आलू चिप्स।"),
+  generateBaseProduct("Rajgira Gud Ladoo",         "राजगिरा गुड़ लड्डू",     "fariyali", true,  "Perfect sweet for fasting, made with amaranth and jaggery.", "एमरेंथ और गुड़ से बना उपवास के लिए एकदम सही मिठाई।"),
+  generateBaseProduct("Tamatar Aloo Chips",        "टमाटर आलू चिप्स",       "fariyali", false, "Tomato-flavoured potato chips with a tangy taste.", "तीखे स्वाद वाली टमाटर-स्वाद आलू चिप्स।"),
+  generateBaseProduct("Salted Chips Moti",         "नमकीन मोटी चिप्स",      "fariyali", false, "Extra thick salted chips with a satisfying crunch.", "संतोषजनक कुरकुराहट के साथ अतिरिक्त मोटी नमकीन चिप्स।"),
+  generateBaseProduct("Rajgira Shakar Ladoo",      "राजगिरा शकर लड्डू",     "fariyali", false, "Fasting ladoos made with rajgira and sugar.", "राजगिरा और चीनी से बने उपवास के लड्डू।"),
+  generateBaseProduct("Kela Chips",                "केला चिप्स",             "fariyali", false, "Crispy banana chips, a vrat-time favourite.", "कुरकुरी केला चिप्स — व्रत के समय की पसंद।"),
+  generateBaseProduct("Kali Mirch South Kela Chips","काली मिर्च साउथ केला चिप्स","fariyali", false, "South-style banana chips with black pepper seasoning.", "काली मिर्च के साथ दक्षिण-शैली की केला चिप्स।"),
+  generateBaseProduct("Rajgira Patti",             "राजगिरा पट्टी",          "fariyali", false, "Crunchy rajgira brittle ideal for fasting snacks.", "उपवास के स्नैक के लिए एकदम सही कुरकुरी राजगिरा पट्टी।"),
 
   // ── DAL & DANA ──
-  generateBaseProduct("Dal Moti Meethi", "dal", "दाल एवं दाने", false, "Sweet coated pulses."),
-  generateBaseProduct("Kabuli Chana", "dal", "दाल एवं दाने", false, "Crispy fried chickpeas with chatpata masala."),
-  generateBaseProduct("Chana Dal Pudina", "dal", "दाल एवं दाने", true, "Mint-flavoured fried chana dal."),
-  generateBaseProduct("Moong Mogar", "dal", "दाल एवं दाने", true, "Classic salted fried moong dal."),
+  generateBaseProduct("Dal Mot Meethi",              "दाल मोट मीठी",              "dal", false, "Sweet-coated dal snack with a crunchy finish.", "मीठी परत वाला दाल स्नैक — कुरकुरी समाप्ति के साथ।"),
+  generateBaseProduct("Tasty Dana",                 "टेस्टी दाना",               "dal", false, "Chatpata fried dana made for everyday munching.", "रोज़ाना मुँह चलाने के लिए चटपटा तला दाना।"),
+  generateBaseProduct("Chana Dal",                  "चना दाल",                   "dal", false, "Classic fried chana dal with simple seasoning.", "सादे मसाले के साथ क्लासिक तली चना दाल।"),
+  generateBaseProduct("Charkhi Dalmot",             "चरखी दालमोट",               "dal", false, "A crunchy dal-based namkeen with traditional flavour.", "पारंपरिक स्वाद के साथ कुरकुरा दाल-आधारित नमकीन।"),
+  generateBaseProduct("Charkhi Gujarati Tasty Dana","चरखी गुजराती टेस्टी दाना", "dal", false, "Gujarati-style tasty dana with a savoury-sweet balance.", "नमकीन-मीठे संतुलन के साथ गुजराती-शैली का टेस्टी दाना।"),
+  generateBaseProduct("Chana Dal Pudina",           "चना दाल पुदीना",            "dal", true,  "Mint-flavoured fried chana dal.", "पुदीने के स्वाद वाली तली चना दाल।"),
+  generateBaseProduct("Moong Mogar",                "मूंग मोगर",                 "dal", true,  "Classic salted fried moong dal.", "क्लासिक नमकीन तली मूंग दाल।"),
+  generateBaseProduct("Kali Mirch Dana",            "काली मिर्च दाना",           "dal", false, "Crisp dana with black pepper seasoning.", "काली मिर्च के साथ कुरकुरा दाना।"),
+  generateBaseProduct("Kabuli Chana",               "काबुली चना",                "dal", true,  "Crispy fried chickpeas with chatpata masala.", "चटपटे मसाले के साथ कुरकुरे तले काबुली चने।"),
+  generateBaseProduct("Hing Chana",                 "हींग चना",                  "dal", false, "Fried chana flavoured with hing and spices.", "हींग और मसालों से बना तला चना।"),
+  generateBaseProduct("Tala Dana",                  "तला दाना",                  "dal", false, "Deep-fried dana snack with satisfying crunch.", "संतोषजनक कुरकुराहट के साथ गहरे तले दाना।"),
+  generateBaseProduct("Masala Matar",               "मसाला मटर",                 "dal", false, "Spiced fried peas, great for tea-time snacking.", "मसालेदार तले मटर — चाय के समय के लिए बढ़िया।"),
+  generateBaseProduct("Sada Chana",                 "सादा चना",                  "dal", false, "Simple salted chana for everyday snacking.", "रोज़ाना स्नैकिंग के लिए साधारण नमकीन चना।"),
+  generateBaseProduct("Lal Mirch Dana",             "लाल मिर्च दाना",            "dal", false, "Dana snack flavoured with bold red chilli.", "बोल्ड लाल मिर्च के स्वाद वाला दाना।"),
+  generateBaseProduct("Salted Peanut",              "नमकीन मूंगफली",             "dal", false, "Classic salted peanuts with a crisp bite.", "कुरकुरे स्वाद के साथ क्लासिक नमकीन मूंगफली।"),
+  generateBaseProduct("Salted Chana",               "नमकीन चना",                 "dal", false, "Salted roasted chana with a simple savoury taste.", "साधारण नमकीन स्वाद के साथ भुना नमकीन चना।"),
 
-  // ── MAIDA ──
-  generateBaseProduct("Mini Kachori", "maida", "मैदा आइटम", true, "Bite-sized crispy kachoris with a spicy dry filling."),
-  generateBaseProduct("Bhakar Badi", "maida", "मैदा आइटम", true, "Sweet, spicy, and tangy rolled snacks."),
-  generateBaseProduct("Mathri Sada", "maida", "मैदा आइटम", false, "Classic flaky savory biscuits."),
+  // ── MAIDA ITEMS ──
+  generateBaseProduct("Mini Kachori",           "मिनी कचोरी",          "maida", true,  "Bite-sized crispy kachoris with a spicy dry filling.", "मसालेदार सूखे भरावन के साथ बाइट-साइज़ कुरकुरी कचोरी।"),
+  generateBaseProduct("Chhoti Bhakar Badi",     "छोटी भाकर बड़ी",     "maida", false, "Smaller version of the classic bhakar badi with sweet-spicy filling.", "मीठे-मसालेदार भरावन के साथ क्लासिक भाकर बड़ी का छोटा संस्करण।"),
+  generateBaseProduct("Shakkarpare",            "शक्करपारे",           "maida", false, "Traditional crispy sweet bites loved across generations.", "पीढ़ियों से पसंद की जाने वाली पारंपरिक कुरकुरी मिठाई।"),
+  generateBaseProduct("Mini Samosa",            "मिनी समोसा",          "maida", false, "Mini crispy samosas perfect for tea-time snacking.", "चाय के समय के लिए एकदम सही मिनी कुरकुरे समोसे।"),
+  generateBaseProduct("Bhakar Badi",            "भाकर बड़ी",           "maida", true,  "Sweet, spicy, and tangy rolled snacks.", "मीठे, मसालेदार और तीखे रोल्ड स्नैक्स।"),
+  generateBaseProduct("Saloni",                 "सलोनी",               "maida", false, "Crisp savoury snack with a classic homemade taste.", "क्लासिक घरेलू स्वाद के साथ कुरकुरा नमकीन स्नैक।"),
+  generateBaseProduct("Mathri Sada",            "मठरी सादा",           "maida", false, "Classic flaky savory biscuits.", "क्लासिक परतदार नमकीन बिस्किट।"),
+  generateBaseProduct("Special Methi Biscuit",  "स्पेशल मेथी बिस्किट", "maida", false, "Fenugreek-flavoured baked savoury bites.", "मेथी के स्वाद वाले बेक्ड नमकीन बाइट्स।"),
+  generateBaseProduct("Chatpati Chawal Phali",  "चटपटी चावल फली",     "maida", false, "Crunchy rice sticks with a tangy masala coating.", "तीखी मसाला कोटिंग के साथ कुरकुरी चावल फली।"),
+  generateBaseProduct("Lal Mirch Chawal Phali", "लाल मिर्च चावल फली", "maida", false, "Rice phali with bold red chilli flavour.", "बोल्ड लाल मिर्च के स्वाद के साथ चावल फली।"),
+  generateBaseProduct("Kali Mirch Kaju Phali",  "काली मिर्च काजू फली","maida", false, "Peppery phali snack with a rich crunchy bite.", "समृद्ध कुरकुरे स्वाद के साथ काली मिर्च की काजू फली।"),
+  generateBaseProduct("Chawal Phali",           "चावल फली",            "maida", false, "Classic crispy chawal phali snack for tea-time.", "चाय के समय के लिए क्लासिक कुरकुरी चावल फली।"),
 
-  // ── BISCUITS ──
-  generateBaseProduct("Kaju Biscuit", "biscuits", "Biscuits & Chakli", true, "Rich, buttery cashew cookies."),
-  generateBaseProduct("Methi Masala Chakli", "biscuits", "Biscuits & Chakli", true, "Crispy spiral snacks flavoured with fenugreek."),
-  generateBaseProduct("Chocolate Coconut Biscuit", "biscuits", "Biscuits & Chakli", false, "A delightful fusion of chocolate and coconut."),
+  // ── BISCUITS & CHAKLI ──
+  generateBaseProduct("Khari",                  "खारी",                  "biscuits", false, "Light, flaky khari with a crisp buttery texture.", "हल्की, परतदार खारी — कुरकुरी बटरी बनावट के साथ।"),
+  generateBaseProduct("Chocolate Coconut Biscuit","चॉकलेट नारियल बिस्किट","biscuits", false, "A delightful fusion of chocolate and coconut.", "चॉकलेट और नारियल का एक आनंददायक संयोजन।"),
+  generateBaseProduct("Ajwain Biscuit",         "अजवाइन बिस्किट",       "biscuits", false, "Savoury biscuits flavoured with aromatic ajwain.", "सुगंधित अजवाइन के स्वाद वाले नमकीन बिस्किट।"),
+  generateBaseProduct("Orange Nan Khatai",      "ऑरेंज नान खटाई",       "biscuits", false, "Soft, crumbly nan khatai with a citrusy note.", "खट्टे नोट के साथ मुलायम और टूटने वाली नान खटाई।"),
+  generateBaseProduct("Double Cracker",         "डबल क्रैकर",             "biscuits", false, "Extra crisp cracker-style biscuits for light snacking.", "हल्के स्नैकिंग के लिए अतिरिक्त कुरकुरे क्रैकर-स्टाइल बिस्किट।"),
+  generateBaseProduct("Choco Chips Biscuit",    "चॉको चिप्स बिस्किट",   "biscuits", false, "Crunchy biscuits loaded with chocolate chip flavour.", "चॉकलेट चिप के स्वाद से भरे कुरकुरे बिस्किट।"),
+  generateBaseProduct("Jeera Biscuit",          "जीरा बिस्किट",          "biscuits", false, "Classic cumin biscuits with a light savoury crunch.", "हल्के नमकीन कुरकुरेपन के साथ क्लासिक जीरा बिस्किट।"),
+  generateBaseProduct("Kaju Biscuit",           "काजू बिस्किट",          "biscuits", true,  "Rich, buttery cashew cookies.", "समृद्ध और बटरी काजू कुकीज़।"),
+  generateBaseProduct("Chhote Kaju Biscuit",    "छोटे काजू बिस्किट",    "biscuits", false, "Smaller cashew biscuits with the same rich flavour.", "उसी समृद्ध स्वाद के साथ छोटे काजू बिस्किट।"),
+  generateBaseProduct("Bade Kaju Biscuit",      "बड़े काजू बिस्किट",    "biscuits", false, "Larger cashew biscuits with a buttery texture.", "बटरी बनावट के साथ बड़े काजू बिस्किट।"),
+  generateBaseProduct("Fruit Biscuit",          "फ्रूट बिस्किट",         "biscuits", false, "Classic fruit biscuits with a sweet bakery-style taste.", "मीठे बेकरी-शैली के स्वाद के साथ क्लासिक फ्रूट बिस्किट।"),
+  generateBaseProduct("Chakli",                 "चकली",                  "biscuits", false, "Traditional spiral snack with a crunchy savoury bite.", "कुरकुरे नमकीन स्वाद के साथ पारंपरिक सर्पिल स्नैक।"),
+  generateBaseProduct("Methi Masala Chakli",    "मेथी मसाला चकली",      "biscuits", true,  "Crispy spiral snacks flavoured with fenugreek.", "मेथी के स्वाद वाली कुरकुरी सर्पिल चकली।"),
+  generateBaseProduct("Butter Chakli",          "बटर चकली",              "biscuits", false, "Smooth buttery chakli with a rich savoury finish.", "समृद्ध नमकीन खत्म के साथ स्मूथ बटरी चकली।"),
+  generateBaseProduct("Masala Chakli",          "मसाला चकली",            "biscuits", false, "Spiced chakli with a bold crunchy flavour.", "बोल्ड कुरकुरे स्वाद के साथ मसालेदार चकली।"),
+  generateBaseProduct("Lahsun Chakli",          "लहसुन चकली",            "biscuits", false, "Garlic-flavoured chakli for spice lovers.", "मसाला प्रेमियों के लिए लहसुन के स्वाद की चकली।"),
+  generateBaseProduct("Soft Chakli",            "सॉफ्ट चकली",            "biscuits", false, "A softer variation of chakli with gentle seasoning.", "हल्के मसाले के साथ चकली का एक नरम संस्करण।"),
 
   // ── OTHER ──
-  generateBaseProduct("Chana Jor Garam", "other", "अन्य", true, "Flat roasted gram with tangy spices."),
-  generateBaseProduct("Soya Stick", "other", "अन्य", false, "Crunchy soya-based snacks."),
-  generateBaseProduct("Shahi Sohan Papddi", "other", "अन्य", true, "Flaky, melt-in-the-mouth traditional sweet."),
+  generateBaseProduct("Besan Papdi Fiki",   "बेसन पापड़ी फीकी",   "other", false, "Mild besan papdi with a light, simple flavour.", "हल्के, सादे स्वाद के साथ बेसन पापड़ी।"),
+  generateBaseProduct("Soya Stick",         "सोया स्टिक",         "other", false, "Crunchy soya-based snacks.", "कुरकुरे सोया-आधारित स्नैक्स।"),
+  generateBaseProduct("Charkhi Boondi",     "चरखी बूंदी",         "other", false, "Crunchy boondi-style snack with a traditional flavour.", "पारंपरिक स्वाद के साथ कुरकुरा बूंदी-शैली का स्नैक।"),
+  generateBaseProduct("Soya Chips",         "सोया चिप्स",         "other", false, "Crispy soya chips with a savoury bite.", "नमकीन स्वाद के साथ कुरकुरी सोया चिप्स।"),
+  generateBaseProduct("Besan Papdi Tikhi",  "बेसन पापड़ी तीखी",  "other", false, "Spicy besan papdi for lovers of bold flavours.", "बोल्ड स्वाद प्रेमियों के लिए मसालेदार बेसन पापड़ी।"),
+  generateBaseProduct("Fiki Boondi",        "फीकी बूंदी",         "other", false, "Plain boondi with a mild and versatile taste.", "हल्के और बहुुउद्देशीय स्वाद के साथ सादी बूंदी।"),
+  generateBaseProduct("Bhavnagari Gathiya", "भावनगरी गाठिया",     "other", false, "Classic Bhavnagari-style thick gathiya.", "क्लासिक भावनगरी-शैली की मोटी गाठिया।"),
+  generateBaseProduct("Rasbhari",           "रसभरी",              "other", false, "A sweet traditional treat with nostalgic flavour.", "नॉस्टेल्जिक स्वाद के साथ एक मीठी पारंपरिक मिठाई।"),
+  generateBaseProduct("Lahsun Parmal",      "लहसुन परमल",         "other", false, "Garlic-flavoured parmal with a light crisp texture.", "हल्की कुरकुरी बनावट के साथ लहसुन परमल।"),
+  generateBaseProduct("Star Gadiya",        "स्टार गड़िया",       "other", false, "Crunchy traditional snack with a playful shape.", "एक मज़ेदार आकार के साथ कुरकुरा पारंपरिक स्नैक।"),
+  generateBaseProduct("Rajgira Gud Patti",  "राजगिरा गुड़ पट्टी", "other", false, "Jaggery-coated rajgira brittle with natural sweetness.", "प्राकृतिक मिठास के साथ गुड़-कोटेड राजगिरा पट्टी।"),
+  generateBaseProduct("Salted Parmal",      "नमकीन परमल",         "other", false, "Light salted parmal ideal for everyday munching.", "रोज़ाना मुँह चलाने के लिए हल्का नमकीन परमल।"),
+  generateBaseProduct("Agra Petha",         "आगरा पेठा",          "other", false, "Classic Agra petha with a soft sweet bite.", "मुलायम मीठे स्वाद के साथ क्लासिक आगरा पेठा।"),
+  generateBaseProduct("Gud Patti",          "गुड़ पट्टी",          "other", false, "Traditional jaggery brittle with a crunchy texture.", "कुरकुरी बनावट के साथ पारंपरिक गुड़ पट्टी।"),
+  generateBaseProduct("Chana Jor Garam",   "चना जोर गरम",        "other", true,  "Flat roasted gram with tangy spices.", "तीखे मसालों के साथ चपटे भुने चने।"),
+  generateBaseProduct("Shahi Sohan Papdi", "शाही सोहन पापड़ी",   "other", true,  "Flaky, melt-in-the-mouth traditional sweet.", "परतदार, मुँह में पिघलने वाली पारंपरिक मिठाई।"),
 ];
+
+// ─── Query helpers ─────────────────────────────────────────────────────────────
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);

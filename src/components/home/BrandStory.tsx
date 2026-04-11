@@ -2,8 +2,11 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function BrandStory() {
+  const { messages } = useLanguage();
+
   return (
     <section className="bg-white section-spacing overflow-hidden">
       <div className="container-wide">
@@ -19,8 +22,8 @@ export default function BrandStory() {
               className="relative w-full aspect-[4/3] bg-[#F9F7F4] overflow-hidden flex items-center justify-center p-8"
             >
               <div className="flex flex-col items-center opacity-10 scale-150">
-                 <div className="w-[100px] h-[100px] border border-brand-dark rotate-45 mb-4" />
-                 <span className="font-sans text-[8px] font-bold tracking-[0.4em] uppercase text-brand-dark">Heritage Visual</span>
+                <div className="w-[100px] h-[100px] border border-brand-dark rotate-45 mb-4" />
+                <span className="font-sans text-[8px] font-bold tracking-[0.4em] uppercase text-brand-dark">Heritage Visual</span>
               </div>
             </motion.div>
             
@@ -36,26 +39,17 @@ export default function BrandStory() {
             transition={{ duration: 0.6 }}
             className="w-full lg:w-1/2"
           >
-            <span className="eyebrow">Our Indore Heritage</span>
-            <h2 className="section-title mb-8">A Legacy of Taste Since 2000</h2>
+            <span className="eyebrow">{messages.brandStory.eyebrow}</span>
+            <h2 className="section-title mb-8 !text-[32px] md:!text-[44px] tracking-tight">{messages.brandStory.title}</h2>
 
-            <div className="space-y-6 font-sans text-[16px] text-brand-dark/70 leading-[1.7] mb-10 font-medium">
-              <p>
-                Gokul ke Shahi Namkeen was born in the heart of Indore. What started as a small family kitchen in 2000 has grown into one of the city&apos;s most trusted destinations for authentic namkeen and traditional sweets.
-              </p>
-              <p>
-                Every batch is made with pure desi cow ghee, honoring the recipes passed down through generations. We believe in quality you can taste and traditions you can trust.
-              </p>
+            <div className="space-y-6 font-sans text-[16px] md:text-[17px] text-brand-dark/85 leading-relaxed mb-10 font-medium">
+              <p>{messages.brandStory.para1}</p>
+              <p>{messages.brandStory.para2}</p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-              {[
-                "Family-run for 20+ years",
-                "FSSAI certified master kitchen",
-                "Authentic Indori recipes",
-                "Pan-India doorstep delivery"
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3 font-sans text-[13px] text-brand-dark font-bold uppercase tracking-tight">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-12">
+              {messages.brandStory.points.map((item: string, i: number) => (
+                <div key={i} className="flex items-center gap-3 font-sans text-[12px] font-black text-brand-dark uppercase tracking-widest">
                   <div className="w-1.5 h-1.5 bg-brand-crimson rotate-45 shrink-0" />
                   {item}
                 </div>
@@ -64,9 +58,9 @@ export default function BrandStory() {
 
             <Link 
               href="/about" 
-              className="btn-commerce btn-secondary !py-3.5 !px-10"
+              className="btn-commerce btn-secondary !py-4 !px-12 !text-[13px] !tracking-[0.15em] border-brand-dark/15"
             >
-              Our Full Story
+              {messages.brandStory.btnStory}
             </Link>
           </motion.div>
           
@@ -75,4 +69,3 @@ export default function BrandStory() {
     </section>
   );
 }
-

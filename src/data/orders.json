@@ -1,0 +1,27 @@
+[
+  {
+    "orderId": "GOKUL-20260410-94NZ",
+    "customer": {
+      "fullName": "Prasann Sharma",
+      "phone": "6263200000",
+      "city": "Indore",
+      "address": "349 H\nVigyan Nagar",
+      "pincode": "452012"
+    },
+    "items": [
+      {
+        "id": "laung-sev-250g",
+        "name": "Laung Sev",
+        "weight": "250g",
+        "price": 120,
+        "quantity": 2,
+        "total": 240
+      }
+    ],
+    "total": 240,
+    "paymentMethod": "COD",
+    "status": "PENDING_CONFIRMATION",
+    "timestamp": "2026-04-09T21:12:23.566Z",
+    "createdAt": "2026-04-09T21:12:23.694Z"
+  }
+]

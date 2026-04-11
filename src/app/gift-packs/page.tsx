@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { SITE_CONFIG } from "@/lib/constants";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import { motion } from "framer-motion";
+import BilingualSEO from "@/components/common/BilingualSEO";
 
 const giftPacks = [
   {
@@ -35,6 +36,7 @@ const giftPacks = [
 export default function GiftPacksPage() {
   return (
     <main className="bg-[#FAF9F6] min-h-screen">
+      <BilingualSEO pageKey="giftPacks" />
       
       {/* ── HEADER ── */}
       <section className="pt-32 pb-12 md:pt-40 md:pb-20">
@@ -88,7 +90,7 @@ export default function GiftPacksPage() {
                 
                 <ul className="space-y-4 mb-12 flex-1">
                   {pack.contents.map((item) => (
-                    <li key={item} className="font-sans text-[13px] font-medium text-brand-dark/60 flex items-center gap-3">
+                    <li key={item} className="font-sans text-[13px] font-medium text-brand-dark/85 flex items-center gap-3">
                       <span className="w-1 h-1 bg-brand-dark/20 rounded-full" />
                       {item}
                     </li>
@@ -108,7 +110,7 @@ export default function GiftPacksPage() {
                   href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(`Hi! I'm interested in the ${pack.name} gift hamper.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-commerce btn-primary !py-4 w-full !text-[12px]"
+                  className="btn-commerce btn-whatsapp !py-4 w-full !text-[12px]"
                 >
                   Request Quote
                 </a>
@@ -130,7 +132,7 @@ export default function GiftPacksPage() {
                href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent("Hi! I'd like to discuss a custom gifting order.")}`}
                target="_blank"
                rel="noopener noreferrer"
-               className="btn-commerce btn-primary !py-4 !px-12 !bg-white !text-brand-dark hover:!bg-[#FAF9F6] transition-colors"
+               className="btn-commerce btn-whatsapp !py-4 !px-12 transition-colors"
             >
                Discuss Custom Requirements
             </a>

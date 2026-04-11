@@ -1,15 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
+// Testimonial data stays in English — these are real customer voices
 const testimonials = [
   {
     id: 1,
     title: "Best Namkeen in Town",
-    body: "The Ratlami sev is absolutely incredible. Gives the authentic taste of Indore that I have been missing since I moved to Bangalore. Pure ghee fragrance hits right out of the packet.",
+    body: "The Ratlami sev is absolutely incredible. Gives the authentic taste of Indore that I have been missing since I moved to Bangalore. The rich, premium aroma hits right out of the packet.",
     name: "Rahul Verma",
     location: "Bangalore",
-    initial: "R"
+    initial: "R",
   },
   {
     id: 2,
@@ -17,7 +19,7 @@ const testimonials = [
     body: "Ordered their Fariyali Mixture during Navratri. Excellent quality and zero oily aftertaste. You can genuinely taste that they don't compromise on ingredients.",
     name: "Sneha Patel",
     location: "Mumbai",
-    initial: "S"
+    initial: "S",
   },
   {
     id: 3,
@@ -25,11 +27,13 @@ const testimonials = [
     body: "Their sweet kaju biscuits and khatta meetha mixture have been a staple in our home for evening tea. Shipping was surprisingly fast and everything arrived intact.",
     name: "Aditya Sharma",
     location: "Delhi",
-    initial: "A"
-  }
+    initial: "A",
+  },
 ];
 
 export default function Testimonials() {
+  const { messages } = useLanguage();
+
   return (
     <section className="bg-white section-spacing">
       <div className="container-wide">
@@ -42,10 +46,10 @@ export default function Testimonials() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="eyebrow mx-auto shadow-none">Customer Voices</span>
-            <h2 className="section-title mb-4">What Our Families Say</h2>
+            <span className="eyebrow mx-auto shadow-none">{messages.testimonials.eyebrow}</span>
+            <h2 className="section-title mb-4">{messages.testimonials.title}</h2>
             <p className="font-sans text-[16px] text-[#555] font-medium max-w-[600px] mx-auto leading-relaxed">
-              Real reviews from families across India who trust Gokul Namkeen for daily snacking and festive gifting.
+              {messages.testimonials.subtitle}
             </p>
           </motion.div>
         </div>
@@ -77,7 +81,7 @@ export default function Testimonials() {
               </p>
 
               <div className="flex items-center gap-4">
-                <div className="w-11 h-11 rounded-full bg-brand-crimson text-white flex items-center justify-center font-sans text-[14px] font-bold">
+                <div className="w-11 h-11 rounded-full bg-brand-crimson text-brand-dark flex items-center justify-center font-sans text-[14px] font-bold">
                   {testimonial.initial}
                 </div>
                 <div className="flex flex-col">
@@ -97,4 +101,3 @@ export default function Testimonials() {
     </section>
   );
 }
-

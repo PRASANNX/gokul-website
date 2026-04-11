@@ -3,92 +3,99 @@
 import Link from "next/link";
 import { categories } from "@/data/categories";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function CategoryGrid() {
+  const { messages, lang } = useLanguage();
+
   return (
-    <section className="bg-white section-spacing border-t border-brand-border/20">
+    <section className="bg-white py-20 md:py-24 border-t border-brand-border/10">
       <div className="container-wide">
         
         {/* ── SECTION HEADER ── */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-8">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="max-w-[600px]"
           >
-            <span className="eyebrow">Explore Our Ranges</span>
-            <h2 className="section-title">Shop by Category</h2>
-            <p className="font-sans text-[16px] text-[#555] font-medium max-w-[520px] mt-4">
-              From Indore&apos;s famous Ratlami Sev to traditional handmade sweets, browse our signature categories.
+            <span className="eyebrow !text-brand-crimson">{messages.categories.eyebrow}</span>
+            <h2 className="section-title !text-[36px] md:!text-[48px] tracking-tight">{messages.categories.title}</h2>
+            <p className="font-sans text-[16px] md:text-[18px] text-brand-dark/85 font-medium mt-4 leading-relaxed">
+              {messages.categories.subtitle}
             </p>
           </motion.div>
           
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Link 
               href="/products" 
-              className="group font-sans text-[14px] font-bold text-brand-crimson hover:text-brand-dark transition-colors flex items-center gap-2 uppercase tracking-widest"
+              className="group font-sans text-[13px] font-black text-brand-dark hover:text-brand-crimson transition-all flex items-center gap-3 uppercase tracking-widest border-b-2 border-brand-dark/10 pb-1"
             >
-              View All Products
-              <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
+              {messages.categories.viewAll}
+              <span className="group-hover:translate-x-1.5 transition-transform duration-300">&rarr;</span>
             </Link>
           </motion.div>
         </div>
 
-        {/* ── GRID ── */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-x-10 md:gap-y-16">
-          {categories.slice(0, 8).map((cat, i) => {
-            let displayTitle = cat.name;
-            if (cat.name.includes("(")) {
-              displayTitle = cat.name.split("(")[0].trim() + " " + cat.name.split("(")[1].replace(")", "").trim();
-            }
-
-            return (
-              <motion.div
-                key={cat.slug}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.05 }}
+        {/* ── VISUAL CATEGORY GRID ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
+          {categories.slice(0, 8).map((cat, i) => (
+            <motion.div
+              key={cat.slug}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
+              <Link
+                href={`/products/category/${cat.slug}`}
+                className="group block relative overflow-hidden rounded-[8px] bg-brand-cream aspect-[4/5] md:aspect-[3/4] border border-brand-border/10 shadow-sm hover:shadow-xl transition-all duration-500"
               >
-                <Link
-                  href={`/products/category/${cat.slug}`}
-                  className="group block"
-                >
-                  {/* Clean Visual Block */}
-                  <div className="relative w-full aspect-[4/5] bg-[#F9F7F4] mb-6 overflow-hidden flex items-center justify-center">
-                    {/* Placeholder for Category Photography */}
-                    <div className="flex flex-col items-center justify-center opacity-10 group-hover:opacity-25 transition-opacity duration-500 scale-125">
-                      <div className="w-[60px] h-0.5 bg-brand-dark mb-4" />
-                      <span className="font-sans text-[8px] font-bold tracking-[0.4em] uppercase text-brand-dark">Category Photo</span>
-                    </div>
-                    
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-brand-crimson/0 group-hover:bg-brand-crimson/5 transition-colors duration-500" />
-                  </div>
+                {/* Visual Placeholder for high-end feel */}
+                <div className="absolute inset-0 flex items-center justify-center p-12 overflow-hidden">
+                  {/* Rotating Diamond Frame */}
+                  <div className="absolute inset-0 border-[0.5px] border-brand-dark/5 rotate-45 scale-[1.4] group-hover:rotate-90 transition-transform duration-1000 ease-out" />
                   
-                  {/* Text Block */}
-                  <div className="flex flex-col">
-                    <h3 className="card-title mb-1 group-hover:text-brand-crimson transition-colors uppercase tracking-tight">
-                      {displayTitle}
-                    </h3>
-                    <span className="font-sans text-[12px] text-brand-dark/40 font-bold uppercase tracking-widest">
-                      {cat.productCount} Varieties
-                    </span>
+                  {/* Subtle Text Placeholder (centered and more visible) */}
+                  <div className="relative z-10 flex flex-col items-center opacity-10 group-hover:opacity-20 transition-opacity">
+                    <span className="font-sans text-[12px] font-black tracking-[0.4em] uppercase text-brand-dark mb-2">{cat.name[lang]}</span>
+                    <div className="h-0.5 w-12 bg-brand-crimson" />
                   </div>
-                </Link>
-              </motion.div>
-            );
-          })}
+                </div>
+
+                {/* Content Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/20 to-transparent flex flex-col justify-end p-8 transition-all duration-700">
+                  <div className="translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                    <h3 className="font-sans text-[22px] md:text-[28px] font-black text-white uppercase tracking-tight mb-3">
+                       {cat.name[lang]}
+                    </h3>
+                    
+                    <div className="flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                      <span className="text-[12px] font-black text-brand-crimson uppercase tracking-[0.2em] bg-brand-crimson/10 px-3 py-1 rounded-sm">
+                        {cat.productCount} {messages.categories.varieties}
+                      </span>
+                      <div className="h-px w-6 bg-brand-crimson/30" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Corner Accents */}
+                <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                  <div className="w-8 h-8 border-t-2 border-r-2 border-brand-crimson/20" />
+                </div>
+              </Link>
+            </motion.div>
+          ))}
         </div>
         
       </div>
     </section>
   );
 }
-

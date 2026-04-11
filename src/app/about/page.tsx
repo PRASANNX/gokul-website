@@ -4,16 +4,21 @@ import type { Metadata } from "next";
 import { SITE_CONFIG } from "@/lib/constants";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+import BilingualSEO from "@/components/common/BilingualSEO";
 
 export default function AboutPage() {
+  const { messages } = useLanguage();
+
   return (
     <main className="bg-[#FAF9F6] min-h-screen">
+      <BilingualSEO pageKey="about" />
       
       {/* ── HEADER ── */}
       <section className="pt-32 pb-12 md:pt-40 md:pb-20">
         <div className="container-wide">
           <div className="mb-8 opacity-50">
-            <Breadcrumb items={[{ label: "About Us" }]} />
+            <Breadcrumb items={[{ label: messages.nav.about }]} />
           </div>
           
           <div className="max-w-[900px]">
@@ -22,13 +27,12 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="eyebrow shadow-none mb-6">Our Indore Heritage</span>
+              <span className="eyebrow shadow-none mb-6">{messages.about.eyebrow}</span>
               <h1 className="display-title mb-8">
-                Born in Indore, <br className="hidden md:block" />
-                <span className="text-brand-crimson">Loved Across India</span>
+                {messages.about.title}
               </h1>
               <p className="font-sans text-[18px] md:text-[20px] text-brand-dark/70 leading-relaxed font-medium max-w-[700px]">
-                Since {SITE_CONFIG.established}, Gokul Namkeen has been crafting authentic snacks and sweets the old-fashioned way — by hand, in small batches, with uncompromising quality.
+                {messages.about.subtitle}
               </p>
             </motion.div>
           </div>
@@ -51,17 +55,10 @@ export default function AboutPage() {
             </div>
 
             <div className="w-full lg:w-1/2">
-              <h2 className="section-title mb-8">It started with one recipe and one dream.</h2>
+              <h2 className="section-title mb-8">{messages.brandStory.title}</h2>
               <div className="space-y-6 font-sans text-[16px] text-brand-dark/70 leading-[1.8] font-medium">
-                <p>
-                  Our founder began selling freshly made namkeen from a small stall in Nehru Nagar, Indore. The taste was unlike anything available — cleaner, purer, more authentic.
-                </p>
-                <p>
-                  Word spread quickly. Neighbours became regulars. Regulars became advocates. And soon, people were calling from across the city — and then across the country — to get their favourite Gokul snacks delivered home.
-                </p>
-                <p>
-                  Today we have grown, but our commitment has never wavered. The same recipes. The same ghee. The same hands. Just more love, more reach, and more happy families.
-                </p>
+                <p>{messages.brandStory.para1}</p>
+                <p>{messages.brandStory.para2}</p>
               </div>
             </div>
           </div>
@@ -72,16 +69,16 @@ export default function AboutPage() {
       <section className="section-spacing bg-[#FAF9F6]">
         <div className="container-wide">
           <div className="text-center mb-16 md:mb-24">
-            <span className="eyebrow mx-auto shadow-none">The Gokul Way</span>
-            <h2 className="section-title">What We Stand For</h2>
+            <span className="eyebrow mx-auto shadow-none">{messages.whyChooseUs.eyebrow}</span>
+            <h2 className="section-title">{messages.whyChooseUs.title}</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 text-center">
             {[
-              { title: "Pure Ingredients", desc: "Only pure desi ghee, never refined oil or dalda." },
-              { title: "No Preservatives", desc: "No artificial colours or flavour enhancers. Pure food, pure taste." },
-              { title: "Daily Fresh", desc: "Every product is made fresh the morning of the day it is sold." },
-              { title: "Family First", desc: "We cook like we're feeding our own family — with care and love." },
+              { title: messages.whyChooseUs.features.ghee.title, desc: messages.whyChooseUs.features.ghee.desc },
+              { title: messages.whyChooseUs.features.preservatives.title, desc: messages.whyChooseUs.features.preservatives.desc },
+              { title: messages.whyChooseUs.features.fresh.title, desc: messages.whyChooseUs.features.fresh.desc },
+              { title: messages.whyChooseUs.features.shipping.title, desc: messages.whyChooseUs.features.shipping.desc },
             ].map((v, i) => (
               <motion.div 
                 key={v.title}
@@ -93,7 +90,7 @@ export default function AboutPage() {
               >
                 <div className="w-1.5 h-1.5 bg-brand-crimson rotate-45 mb-6" />
                 <h3 className="card-title mb-4 uppercase tracking-tight">{v.title}</h3>
-                <p className="font-sans text-[14px] text-brand-dark/60 font-medium leading-relaxed max-w-[240px]">
+                <p className="font-sans text-[14px] text-brand-dark/85 font-medium leading-relaxed max-w-[240px]">
                   {v.desc}
                 </p>
               </motion.div>
@@ -104,4 +101,3 @@ export default function AboutPage() {
     </main>
   );
 }
-

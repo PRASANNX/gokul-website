@@ -1,4 +1,8 @@
-import { StarRatingProps } from "./StarRating";
+interface StarRatingProps {
+  rating: number;
+  count: number;
+  showCount?: boolean;
+}
 
 export default function StarRating({ rating, count, showCount = true }: StarRatingProps) {
   return (

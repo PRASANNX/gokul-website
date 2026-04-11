@@ -27,7 +27,6 @@ export default function Header() {
     { label: messages.nav.home,         href: "/" },
     { label: messages.nav.products,     href: "/products" },
     { label: messages.wholesale.pageTitle, href: "/wholesale" },
-    { label: messages.nav.giftPacks,    href: "/gift-packs" },
     { label: messages.nav.about,        href: "/about" },
     { label: messages.nav.contact,      href: "/contact" },
   ];

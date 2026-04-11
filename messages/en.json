@@ -6,7 +6,6 @@
     "faq": { "title": "FAQ", "description": "Frequently asked questions." },
     "products": { "title": "All Products", "description": "Shop the finest premium namkeen and sweets." },
     "bulkOrders": { "title": "Bulk Orders", "description": "Order Gokul snacks in wholesale for events." },
-    "giftPacks": { "title": "Gift Packs", "description": "Celebrate with the Gokul collection of hampers." },
     "categories": { "title": "Categories", "description": "Shop our collections." }
   },
   "nav": {
@@ -16,7 +15,6 @@
     "contact": "Contact",
     "faq": "FAQ & Help",
     "bulkOrders": "Bulk Orders",
-    "giftPacks": "Gift Packs",
     "support": "Support",
     "orderOnline": "Order Online"
   },
@@ -162,11 +160,6 @@
     "title": "Bulk Orders",
     "subtitle": "Planning for a wedding, corporate event, or festive gifting? We offer customised bulk packs.",
     "cta": "Request a Quote"
-  },
-  "giftPacks": {
-    "title": "Gift Packs",
-    "subtitle": "Curated gift boxes of premium namkeen — perfect for every occasion.",
-    "cta": "Explore Gift Packs"
   },
   "faq": {
     "title": "FAQ & Help",

@@ -64,6 +64,10 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     description: metaHome?.description || SITE_CONFIG.description,
     keywords: ["Namkeen", "Indore", "Snacks", "Sweets", "Premium Namkeen", "Fariyali", "Best snacks in India"],
+    icons: {
+      icon: "/images/logo.png",
+      apple: "/images/logo.png",
+    },
   };
 }
 

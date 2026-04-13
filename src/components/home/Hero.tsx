@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { SITE_CONFIG } from "@/lib/constants";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
@@ -72,29 +73,20 @@ export default function Hero() {
               transition={{ duration: 0.8 }}
               className="relative w-full aspect-square bg-white border border-brand-border/20 rounded-[8px] overflow-hidden flex items-center justify-center group shadow-2xl shadow-brand-dark/5"
             >
-              <div className="absolute inset-0 bg-brand-cream/30" />
-              
-              {/* Dynamic Heritage Visual - Layered Geometry */}
-              <div className="relative w-3/4 h-3/4 border-2 border-brand-dark/[0.03] rotate-45 flex items-center justify-center transition-transform duration-1000 group-hover:rotate-[135deg]">
-                <div className="w-full h-px bg-brand-dark/[0.05] absolute" />
-                <div className="h-full w-px bg-brand-dark/[0.05] absolute" />
-                <div className="w-2/3 h-2/3 border-[1.5px] border-brand-crimson/10 shadow-inner" />
-              </div>
-              
-              <div className="absolute flex flex-col items-center z-10">
-                 <div className="w-12 h-12 border-2 border-brand-crimson rotate-45 mb-6 flex items-center justify-center bg-white shadow-xl group-hover:bg-brand-crimson group-hover:border-white transition-colors duration-500">
-                    <div className="w-2 h-2 bg-brand-crimson group-hover:bg-white rotate-45" />
-                 </div>
-                 <span className="font-sans text-[13px] font-black tracking-[0.4em] uppercase text-brand-dark mb-2">Gokul Heritage</span>
-                 <div className="h-0.5 w-16 bg-brand-crimson/40" />
-              </div>
+              <Image 
+                src="/images/banners/hero-banner.JPG" 
+                alt="Gokul Heritage Premium Namkeen" 
+                fill
+                priority
+                className="object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
 
               {/* Floating Decorative Elements - Corners */}
-              <div className="absolute top-0 right-0 p-12 translate-x-2 -translate-y-2">
-                 <div className="w-20 h-20 border-t-2 border-r-2 border-brand-crimson/20" />
+              <div className="absolute top-0 right-0 p-12 translate-x-2 -translate-y-2 z-10">
+                 <div className="w-20 h-20 border-t-2 border-r-2 border-brand-crimson/80" />
               </div>
-              <div className="absolute bottom-0 left-0 p-12 -translate-x-2 translate-y-2">
-                 <div className="w-20 h-20 border-b-2 border-l-2 border-brand-crimson/20" />
+              <div className="absolute bottom-0 left-0 p-12 -translate-x-2 translate-y-2 z-10">
+                 <div className="w-20 h-20 border-b-2 border-l-2 border-brand-crimson/80" />
               </div>
             </motion.div>
             

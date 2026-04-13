@@ -4,6 +4,7 @@ import Link from "next/link";
 import { categories } from "@/data/categories";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
+import Image from "next/image";
 
 export default function CategoryGrid() {
   const { messages, lang } = useLanguage();
@@ -58,16 +59,22 @@ export default function CategoryGrid() {
                 href={`/products/category/${cat.slug}`}
                 className="group block relative overflow-hidden rounded-[8px] bg-brand-cream aspect-[4/5] md:aspect-[3/4] border border-brand-border/10 shadow-sm hover:shadow-xl transition-all duration-500"
               >
-                {/* Visual Placeholder for high-end feel */}
-                <div className="absolute inset-0 flex items-center justify-center p-12 overflow-hidden">
+                {/* Actual Category Image */}
+                {cat.image && (
+                  <div className="absolute inset-0 z-0">
+                    <Image
+                      src={cat.image}
+                      alt={cat.name[lang]}
+                      fill
+                      className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-60 group-hover:opacity-100"
+                    />
+                  </div>
+                )}
+
+                {/* Visual Placeholder fallback/overlay for high-end feel */}
+                <div className="absolute inset-0 flex items-center justify-center p-12 overflow-hidden z-0">
                   {/* Rotating Diamond Frame */}
                   <div className="absolute inset-0 border-[0.5px] border-brand-dark/5 rotate-45 scale-[1.4] group-hover:rotate-90 transition-transform duration-1000 ease-out" />
-                  
-                  {/* Subtle Text Placeholder (centered and more visible) */}
-                  <div className="relative z-10 flex flex-col items-center opacity-10 group-hover:opacity-20 transition-opacity">
-                    <span className="font-sans text-[12px] font-black tracking-[0.4em] uppercase text-brand-dark mb-2">{cat.name[lang]}</span>
-                    <div className="h-0.5 w-12 bg-brand-crimson" />
-                  </div>
                 </div>
 
                 {/* Content Overlay */}

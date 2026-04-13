@@ -74,18 +74,27 @@ export default function ProductDetailPage({ params }: Props) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
-              className="relative aspect-square bg-[#FAF9F6] border border-brand-border/10 overflow-hidden flex items-center justify-center p-8 md:p-12 lg:sticky lg:top-32"
+              className="relative aspect-square bg-white border border-brand-border/10 overflow-hidden flex items-center justify-center lg:sticky lg:top-32"
             >
-              {/* Refined Heritage Visual */}
-              <div className="relative w-2/3 h-2/3 border border-brand-dark/5 rotate-45 flex items-center justify-center transition-transform duration-1000 group-hover:rotate-90">
-                <div className="w-full h-px bg-brand-dark/5 absolute" />
-                <div className="h-full w-px bg-brand-dark/5 absolute" />
-                <div className="w-1/2 h-1/2 border border-brand-crimson/10" />
-              </div>
-              
-              <div className="absolute flex flex-col items-center">
-                 <span className="font-sans text-[11px] font-black tracking-[0.4em] uppercase text-brand-dark opacity-20 mb-2">Heritage Namkeens</span>
-                 <div className="h-0.5 w-16 bg-brand-crimson/20" />
+              {/* Product Image */}
+              {product.images[0] && (
+                <div className="absolute inset-0 z-0">
+                  <Image
+                    src={product.images[0]}
+                    alt={bLang(product.name, lang)}
+                    fill
+                    priority
+                    className="object-contain p-4 md:p-8"
+                  />
+                </div>
+              )}
+
+              {/* Refined Heritage Visual overlay (subtle) */}
+              <div className="absolute inset-0 z-10 flex items-center justify-center p-8 pointer-events-none opacity-5 hover:opacity-10 transition-opacity">
+                <div className="relative w-full h-full border border-brand-dark/5 rotate-45 flex items-center justify-center">
+                  <div className="w-full h-px bg-brand-dark/5 absolute" />
+                  <div className="h-full w-px bg-brand-dark/5 absolute" />
+                </div>
               </div>
 
               {product.bestseller && (

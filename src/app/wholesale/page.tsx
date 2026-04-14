@@ -11,11 +11,25 @@ export default function WholesalePage() {
   const wholesaleMessages = messages.wholesale;
 
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [formData, setFormData] = useState({ name: "", phone: "", city: "", message: "" });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus("submitting");
-    setTimeout(() => setFormStatus("success"), 1000);
+    
+    // Construct WhatsApp Message
+    const text = `*New Business/Wholesale Inquiry*\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*City:* ${formData.city}\n*Requirement:* ${formData.message}`;
+    const encodedText = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodedText}`;
+    
+    // Open WhatsApp & Show Success
+    window.open(whatsappUrl, '_blank');
+    setFormStatus("success");
   };
 
   return (
@@ -56,23 +70,50 @@ export default function WholesalePage() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="flex flex-col gap-2">
                     <label htmlFor="name" className="text-[10px] font-bold text-brand-dark/70 uppercase tracking-widest leading-none">{lang === "hi" ? "आपका नाम" : "Name"}</label>
-                    <input type="text" id="name" required className="border border-brand-border/20 bg-[#FAF9F6] p-4 text-[14px] font-sans focus:outline-none focus:border-brand-crimson transition-colors" />
+                    <input 
+                      type="text" 
+                      id="name" 
+                      required 
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="border border-brand-border/20 bg-[#FAF9F6] p-4 text-[14px] font-sans focus:outline-none focus:border-brand-crimson transition-colors" 
+                    />
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="flex flex-col gap-2">
                       <label htmlFor="phone" className="text-[10px] font-bold text-brand-dark/70 uppercase tracking-widest leading-none">{lang === "hi" ? "फोन नंबर" : "Phone"}</label>
-                      <input type="tel" id="phone" required className="border border-brand-border/20 bg-[#FAF9F6] p-4 text-[14px] font-sans focus:outline-none focus:border-brand-crimson transition-colors" />
+                      <input 
+                        type="tel" 
+                        id="phone" 
+                        required 
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        className="border border-brand-border/20 bg-[#FAF9F6] p-4 text-[14px] font-sans focus:outline-none focus:border-brand-crimson transition-colors" 
+                      />
                     </div>
                     <div className="flex flex-col gap-2">
                       <label htmlFor="city" className="text-[10px] font-bold text-brand-dark/70 uppercase tracking-widest leading-none">{lang === "hi" ? "शहर" : "City"}</label>
-                      <input type="text" id="city" required className="border border-brand-border/20 bg-[#FAF9F6] p-4 text-[14px] font-sans focus:outline-none focus:border-brand-crimson transition-colors" />
+                      <input 
+                        type="text" 
+                        id="city" 
+                        required 
+                        value={formData.city}
+                        onChange={handleInputChange}
+                        className="border border-brand-border/20 bg-[#FAF9F6] p-4 text-[14px] font-sans focus:outline-none focus:border-brand-crimson transition-colors" 
+                      />
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-2">
                     <label htmlFor="message" className="text-[10px] font-bold text-brand-dark/70 uppercase tracking-widest leading-none">{lang === "hi" ? "आपकी जरूरत (Quantity/Items)" : "Message (Quantity/Items)"}</label>
-                    <textarea id="message" rows={3} className="border border-brand-border/20 bg-[#FAF9F6] p-4 text-[14px] font-sans focus:outline-none focus:border-brand-crimson transition-colors resize-none"></textarea>
+                    <textarea 
+                      id="message" 
+                      rows={3} 
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      className="border border-brand-border/20 bg-[#FAF9F6] p-4 text-[14px] font-sans focus:outline-none focus:border-brand-crimson transition-colors resize-none"
+                    ></textarea>
                   </div>
 
                   <button type="submit" disabled={formStatus === "submitting"} className="btn-commerce btn-primary w-full !py-5 shadow-md active:scale-[0.98] transition-all">

@@ -112,12 +112,12 @@ export default function Header() {
               {/* Mobile Toggle */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 group bg-brand-cream/50 rounded-full border border-brand-border/10"
+                className="lg:hidden w-11 h-11 flex flex-col items-center justify-center gap-1.5 group bg-brand-cream/50 active:bg-brand-crimson/10 rounded-full border border-brand-border/10 transition-colors"
                 aria-label={messages.common.menu}
               >
-                <div className={`h-[2px] bg-brand-dark transition-all duration-300 ${mobileMenuOpen ? "w-6 rotate-45 translate-y-2" : "w-5"}`} />
-                <div className={`h-[2px] bg-brand-dark transition-all duration-300 ${mobileMenuOpen ? "opacity-0" : "w-3 ml-auto"}`} />
-                <div className={`h-[2px] bg-brand-dark transition-all duration-300 ${mobileMenuOpen ? "w-6 -rotate-45 -translate-y-2" : "w-5"}`} />
+                <div className={`h-[1.5px] bg-brand-dark transition-all duration-300 ${mobileMenuOpen ? "w-6 rotate-45 translate-y-[7.5px]" : "w-6"}`} />
+                <div className={`h-[1.5px] bg-brand-dark transition-all duration-300 ${mobileMenuOpen ? "opacity-0 translate-x-4" : "w-6"}`} />
+                <div className={`h-[1.5px] bg-brand-dark transition-all duration-300 ${mobileMenuOpen ? "w-6 -rotate-45 -translate-y-[7.5px]" : "w-6"}`} />
               </button>
             </div>
           </div>

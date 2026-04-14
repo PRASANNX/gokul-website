@@ -120,13 +120,12 @@ export default function Header() {
                 <div className={`h-[2px] bg-brand-dark transition-all duration-300 ${mobileMenuOpen ? "w-6 -rotate-45 -translate-y-2" : "w-5"}`} />
               </button>
             </div>
-
           </div>
         </div>
+
+        <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
       </header>
 
-      <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
-      
       {/* Spacer to prevent layout shift from fixed header */}
       <div className={isScrolled ? "h-[105px] md:h-[115px]" : "h-[125px] md:h-[145px]"} />
     </>

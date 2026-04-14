@@ -22,14 +22,14 @@ export default function ProcessPage() {
             transition={{ duration: 0.8 }}
           >
             <span className="font-sans text-[11px] md:text-[13px] font-black uppercase tracking-[0.4em] text-brand-crimson mb-6 block">
-              Behind the Scenes
+              {messages.process.eyebrow}
             </span>
             <h1 className="display-title text-brand-dark mb-8 !text-[48px] md:!text-[84px] lg:!text-[100px] leading-[0.9] tracking-tighter">
-              The Art of <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-crimson to-brand-dark">Shahi Namkeen</span>
+              {messages.process.title1} <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-crimson to-brand-dark">{messages.process.title2}</span>
             </h1>
             <p className="font-sans text-[16px] md:text-[18px] text-brand-dark/70 max-w-2xl mx-auto leading-relaxed">
-              Discover the traditional craftsmanship and dedication that goes into every batch of Gokul's heritage snacks. Handcrafted with purity, served with pride.
+              {messages.process.subtitle}
             </p>
           </motion.div>
         </div>
@@ -57,7 +57,7 @@ export default function ProcessPage() {
               />
               <div className="absolute inset-0 bg-brand-dark/10 group-hover:bg-transparent transition-colors duration-500" />
               <div className="absolute bottom-6 left-6 z-10">
-                 <span className="font-sans text-[10px] font-black uppercase tracking-[0.3em] text-white bg-brand-crimson px-3 py-1">Authentic</span>
+                 <span className="font-sans text-[10px] font-black uppercase tracking-[0.3em] text-white bg-brand-crimson px-3 py-1">{messages.process.galleryLabel}</span>
               </div>
             </motion.div>
 
@@ -111,8 +111,8 @@ export default function ProcessPage() {
       <section className="pb-32">
         <div className="container-wide">
           <div className="text-center mb-16">
-            <span className="font-sans text-[11px] font-black uppercase tracking-[0.3em] text-brand-crimson mb-4 block">Process in Motion</span>
-            <h2 className="display-title !text-[32px] md:!text-[42px] text-brand-dark uppercase">Craftsmanship <br /> in Action</h2>
+            <span className="font-sans text-[11px] font-black uppercase tracking-[0.3em] text-brand-crimson mb-4 block">{messages.process.videoEyebrow}</span>
+            <h2 className="display-title !text-[32px] md:!text-[42px] text-brand-dark uppercase">{messages.process.videoTitle}</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-[1200px] mx-auto">
@@ -160,27 +160,27 @@ export default function ProcessPage() {
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
              <div>
-                <h2 className="display-title text-white !text-[44px] md:!text-[60px] mb-8">Purity is <br /> our Promise.</h2>
+                <h2 className="display-title text-white !text-[44px] md:!text-[60px] mb-8">{messages.process.valuesTitle}</h2>
                 <div className="space-y-8">
                    <div className="flex gap-6">
                       <div className="w-12 h-12 shrink-0 border border-white/20 flex items-center justify-center text-[12px] font-black">01</div>
                       <div>
-                         <h3 className="font-sans text-[14px] font-black uppercase tracking-widest mb-3 text-brand-crimson">Heritage Recipes</h3>
-                         <p className="font-sans text-white/60 text-[15px] leading-relaxed">We use recipes passed down through generations, ensuring every bite carries the authentic taste of Indore's heritage.</p>
+                         <h3 className="font-sans text-[14px] font-black uppercase tracking-widest mb-3 text-brand-crimson">{messages.process.val1Title}</h3>
+                         <p className="font-sans text-white/60 text-[15px] leading-relaxed">{messages.process.val1Desc}</p>
                       </div>
                    </div>
                    <div className="flex gap-6">
                       <div className="w-12 h-12 shrink-0 border border-white/20 flex items-center justify-center text-[12px] font-black">02</div>
                       <div>
-                         <h3 className="font-sans text-[14px] font-black uppercase tracking-widest mb-3 text-brand-crimson">Handcrafted Batches</h3>
-                         <p className="font-sans text-white/60 text-[15px] leading-relaxed">Small batches mean big flavor. Every piece is handled with care by our master craftsmen.</p>
+                         <h3 className="font-sans text-[14px] font-black uppercase tracking-widest mb-3 text-brand-crimson">{messages.process.val2Title}</h3>
+                         <p className="font-sans text-white/60 text-[15px] leading-relaxed">{messages.process.val2Desc}</p>
                       </div>
                    </div>
                    <div className="flex gap-6">
                       <div className="w-12 h-12 shrink-0 border border-white/20 flex items-center justify-center text-[12px] font-black">03</div>
                       <div>
-                         <h3 className="font-sans text-[14px] font-black uppercase tracking-widest mb-3 text-brand-crimson">Uncompromising Quality</h3>
-                         <p className="font-sans text-white/60 text-[15px] leading-relaxed">Only the finest spices and 100% pure edible oils make it into our kitchen. No shortcuts, ever.</p>
+                         <h3 className="font-sans text-[14px] font-black uppercase tracking-widest mb-3 text-brand-crimson">{messages.process.val3Title}</h3>
+                         <p className="font-sans text-white/60 text-[15px] leading-relaxed">{messages.process.val3Desc}</p>
                       </div>
                    </div>
                 </div>
@@ -191,7 +191,7 @@ export default function ProcessPage() {
                    <div className="border border-white w-[200%] h-[200%]" />
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center p-12 text-center">
-                   <p className="font-serif italic text-white/40 text-[24px]">"Making namkeen is not just a business; it's a legacy of flavor we share with the world."</p>
+                   <p className="font-serif italic text-white/40 text-[24px]">&ldquo;{messages.process.quote}&rdquo;</p>
                 </div>
              </div>
           </div>
@@ -201,9 +201,9 @@ export default function ProcessPage() {
       {/* ── CALL TO ACTION ── */}
       <section className="py-24 text-center">
          <div className="container-wide">
-            <h2 className="display-title !text-[36px] md:!text-[48px] mb-8 text-brand-dark">Experience the Crunch Personally.</h2>
+            <h2 className="display-title !text-[36px] md:!text-[48px] mb-8 text-brand-dark">{messages.process.ctaTitle}</h2>
             <Link href="/products" className="btn-commerce btn-primary !py-5 !px-12 !text-[14px] !tracking-[0.2em]">
-               Shop the Heritage Collection
+               {messages.process.ctaBtn}
             </Link>
          </div>
       </section>

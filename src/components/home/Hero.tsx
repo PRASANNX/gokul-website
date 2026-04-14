@@ -24,6 +24,17 @@ export default function Hero() {
               <span className="eyebrow !mb-4 !text-brand-crimson">
                 {messages.hero.eyebrow}
               </span>
+
+              {/* Founder & Tagline */}
+              <div className="flex flex-col items-center lg:items-start gap-1 mb-6">
+                <span className="inline-flex items-center gap-2 font-sans text-[12px] font-black uppercase tracking-[0.2em] text-brand-dark/50">
+                  <span className="w-4 h-px bg-brand-dark/30" />
+                  {messages.hero.founder}
+                </span>
+                <p className="font-sans text-[15px] md:text-[17px] font-bold text-brand-dark italic">
+                  &ldquo;{messages.hero.tagline}&rdquo;
+                </p>
+              </div>
               
               <h1 className="display-title mb-6">
                 {messages.hero.title} <span className="text-brand-crimson">{messages.hero.titleHighlight}</span> <br className="hidden lg:block" /> 

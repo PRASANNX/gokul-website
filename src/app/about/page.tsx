@@ -59,7 +59,11 @@ export default function AboutPage() {
             </div>
 
             <div className="w-full lg:w-1/2">
-              <h2 className="section-title mb-8">{messages.brandStory.title}</h2>
+              <h2 className="section-title mb-4">{messages.brandStory.title}</h2>
+              <p className="font-sans text-[12px] font-black uppercase tracking-[0.2em] text-brand-dark/40 mb-8 flex items-center gap-2">
+                <span className="w-4 h-px bg-brand-dark/30" />
+                {messages.about.founder}
+              </p>
               <div className="space-y-6 font-sans text-[16px] text-brand-dark/70 leading-[1.8] font-medium mb-12">
                 <p>{messages.brandStory.para1}</p>
                 <p>{messages.brandStory.para2}</p>
@@ -69,7 +73,7 @@ export default function AboutPage() {
                 href="/process" 
                 className="btn-commerce btn-primary !py-5 !px-12 !text-[13px] !tracking-[0.2em] shadow-xl"
               >
-                View Our Complete Craftsmanship
+                {messages.about.storyCta}
               </Link>
             </div>
           </div>

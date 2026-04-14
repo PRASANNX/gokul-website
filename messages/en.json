@@ -6,7 +6,8 @@
     "faq": { "title": "FAQ", "description": "Frequently asked questions." },
     "products": { "title": "All Products", "description": "Shop the finest premium namkeen and sweets." },
     "bulkOrders": { "title": "Bulk Orders", "description": "Order Gokul snacks in wholesale for events." },
-    "categories": { "title": "Categories", "description": "Shop our collections." }
+    "categories": { "title": "Categories", "description": "Shop our collections." },
+    "process": { "title": "Our Process", "description": "Behind the scenes of Gokul Namkeen's handcrafted heritage." }
   },
   "nav": {
     "home": "Home",
@@ -24,6 +25,8 @@
   },
   "hero": {
     "eyebrow": "The Authentic Taste of Indore",
+    "founder": "Founder: Shri Gokul Ji Dangi",
+    "tagline": "Indore's True Taste, Royal Flair in Every Bite!",
     "title": "Gokul ke",
     "titleHighlight": "Shahi",
     "titleEnd": "Namkeen",
@@ -147,7 +150,9 @@
   "about": {
     "eyebrow": "Our Story",
     "title": "About Gokul ke Shahi Namkeen",
-    "subtitle": "A family legacy of authentic flavours from the heart of Indore, crafted with love since 1996."
+    "subtitle": "A family legacy of authentic flavours from the heart of Indore, crafted with love since 1996.",
+    "founder": "Founder: Shri Gokul Ji Dangi",
+    "storyCta": "View Our Complete Craftsmanship"
   },
   "contact": {
     "title": "Get in Touch",
@@ -165,6 +170,25 @@
   "faq": {
     "title": "FAQ & Help",
     "subtitle": "Answers to frequently asked questions about our products, delivery, and orders."
+  },
+  "process": {
+    "eyebrow": "Behind the Scenes",
+    "title1": "The Art of",
+    "title2": "Shahi Namkeen",
+    "subtitle": "Discover the traditional craftsmanship and dedication that goes into every batch of Gokul's heritage snacks. Handcrafted with purity, served with pride.",
+    "galleryLabel": "Authentic",
+    "videoEyebrow": "Process in Motion",
+    "videoTitle": "Craftsmanship in Action",
+    "valuesTitle": "Purity is our Promise.",
+    "val1Title": "Heritage Recipes",
+    "val1Desc": "We use recipes passed down through generations, ensuring every bite carries the authentic taste of Indore's heritage.",
+    "val2Title": "Handcrafted Batches",
+    "val2Desc": "Small batches mean big flavor. Every piece is handled with care by our master craftsmen.",
+    "val3Title": "Uncompromising Quality",
+    "val3Desc": "Only the finest spices and 100% pure edible oils make it into our kitchen. No shortcuts, ever.",
+    "quote": "Making namkeen is not just a business; it's a legacy of flavor we share with the world.",
+    "ctaTitle": "Experience the Crunch Personally.",
+    "ctaBtn": "Shop the Heritage Collection"
   },
   "common": {
     "learnMore": "Learn More",

@@ -107,6 +107,29 @@ export default function ProcessPage() {
         </div>
       </section>
 
+      {/* ── VIDEO SECTION ── */}
+      <section className="pb-32">
+        <div className="container-wide">
+          <div className="max-w-[500px] mx-auto">
+             <div className="text-center mb-12">
+                <span className="font-sans text-[11px] font-black uppercase tracking-[0.3em] text-brand-crimson mb-4 block">Process in Motion</span>
+                <h2 className="display-title !text-[32px] md:!text-[42px] text-brand-dark uppercase">Craftsmanship <br /> in Action</h2>
+             </div>
+             
+             <div className="relative aspect-[9/16] bg-brand-dark rounded-xl shadow-2xl overflow-hidden border-8 border-white">
+                <iframe 
+                  className="absolute inset-0 w-full h-full"
+                  src="https://www.youtube.com/embed/_R_OXOTkZUc" 
+                  title="Gokul Namkeen Process" 
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowFullScreen
+                ></iframe>
+             </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── VALUES SECTION ── */}
       <section className="py-32 bg-brand-dark text-white overflow-hidden relative">
         <div className="container-wide">

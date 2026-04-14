@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SITE_CONFIG } from "@/lib/constants";
 import WhatsAppCTA from "@/components/common/WhatsAppCTA";
 import { useLanguage } from "@/context/LanguageContext";
+import LanguageSwitcher from "@/components/common/LanguageSwitcher";
 
 interface MobileMenuProps {
   isOpen: boolean;

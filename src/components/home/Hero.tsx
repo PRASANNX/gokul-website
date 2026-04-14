@@ -21,17 +21,17 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <span className="eyebrow !mb-4 !text-brand-crimson">
+              <span className="eyebrow !mb-6 !text-brand-crimson">
                 {messages.hero.eyebrow}
               </span>
 
-              {/* Founder & Tagline */}
-              <div className="flex flex-col items-center lg:items-start gap-1 mb-6">
-                <span className="inline-flex items-center gap-2 font-sans text-[12px] font-black uppercase tracking-[0.2em] text-brand-dark/50">
-                  <span className="w-4 h-px bg-brand-dark/30" />
+              {/* Founder & Tagline — Primary Visual Hierarchy */}
+              <div className="mb-8 flex flex-col items-center lg:items-start gap-3">
+                <span className="inline-flex items-center gap-3 font-sans text-[13px] md:text-[14px] font-black uppercase tracking-[0.25em] text-brand-dark/60 border border-brand-dark/10 px-4 py-2 rounded-full">
+                  <span className="w-2 h-2 rounded-full bg-brand-crimson animate-pulse" />
                   {messages.hero.founder}
                 </span>
-                <p className="font-sans text-[15px] md:text-[17px] font-bold text-brand-dark italic">
+                <p className="font-sans text-[22px] md:text-[30px] lg:text-[34px] font-extrabold text-brand-dark leading-tight tracking-tight">
                   &ldquo;{messages.hero.tagline}&rdquo;
                 </p>
               </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getProductBySlug, getRelatedProducts } from "@/data/products";
 import { formatPrice } from "@/lib/utils";

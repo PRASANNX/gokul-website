@@ -115,7 +115,7 @@ export default function ProcessPage() {
             <h2 className="display-title !text-[32px] md:!text-[42px] text-brand-dark uppercase">Craftsmanship <br /> in Action</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-[1000px] mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-[1200px] mx-auto">
              {/* VIDEO 1 */}
              <div className="relative aspect-[9/16] bg-brand-dark rounded-xl shadow-2xl overflow-hidden border-8 border-white">
                 <iframe 
@@ -134,6 +134,18 @@ export default function ProcessPage() {
                   className="absolute inset-0 w-full h-full"
                   src="https://www.youtube.com/embed/Eo-RBbRrZxc" 
                   title="Gokul Namkeen Process 2" 
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowFullScreen
+                ></iframe>
+             </div>
+
+             {/* VIDEO 3 */}
+             <div className="relative aspect-[9/16] bg-brand-dark rounded-xl shadow-2xl overflow-hidden border-8 border-white">
+                <iframe 
+                  className="absolute inset-0 w-full h-full"
+                  src="https://www.youtube.com/embed/UC17cKXoGBc" 
+                  title="Gokul Namkeen Process 3" 
                   frameBorder="0" 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                   allowFullScreen

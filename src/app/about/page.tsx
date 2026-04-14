@@ -47,12 +47,12 @@ export default function AboutPage() {
             <div className="w-full lg:w-1/2">
               <div className="relative aspect-[4/3] bg-[#FAF9F6] overflow-hidden">
                 <Image 
-                  src="/images/process/process-4.png" 
-                  alt="Gokul Heritage" 
+                  src="/images/banners/IMG_9716.JPG" 
+                  alt="Gokul Heritage Shop" 
                   fill 
-                  className="object-cover grayscale hover:grayscale-0 transition-all duration-700" 
+                  className="object-cover transition-all duration-700" 
                 />
-                <div className="absolute inset-0 bg-brand-dark/10" />
+                <div className="absolute inset-0 bg-brand-dark/5" />
                 {/* Decorative accent */}
                 <div className="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2 border-brand-saffron/20" />
               </div>

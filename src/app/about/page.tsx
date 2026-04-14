@@ -1,6 +1,7 @@
 "use client";
 
-import type { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
 import { SITE_CONFIG } from "@/lib/constants";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import { motion } from "framer-motion";
@@ -44,11 +45,14 @@ export default function AboutPage() {
         <div className="container-wide">
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
             <div className="w-full lg:w-1/2">
-              <div className="relative aspect-[4/3] bg-[#FAF9F6] overflow-hidden flex items-center justify-center p-12 lg:p-20">
-                <div className="relative z-10 w-full h-full border border-brand-dark/5 opacity-20 flex flex-col items-center justify-center">
-                   <div className="w-1/2 h-1/2 border border-brand-dark rotate-45" />
-                   <span className="mt-8 font-sans text-[10px] font-bold tracking-[0.4em] uppercase text-brand-dark">Heritage Archive</span>
-                </div>
+              <div className="relative aspect-[4/3] bg-[#FAF9F6] overflow-hidden">
+                <Image 
+                  src="/images/process/process-4.png" 
+                  alt="Gokul Heritage" 
+                  fill 
+                  className="object-cover grayscale hover:grayscale-0 transition-all duration-700" 
+                />
+                <div className="absolute inset-0 bg-brand-dark/10" />
                 {/* Decorative accent */}
                 <div className="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2 border-brand-saffron/20" />
               </div>
@@ -56,10 +60,17 @@ export default function AboutPage() {
 
             <div className="w-full lg:w-1/2">
               <h2 className="section-title mb-8">{messages.brandStory.title}</h2>
-              <div className="space-y-6 font-sans text-[16px] text-brand-dark/70 leading-[1.8] font-medium">
+              <div className="space-y-6 font-sans text-[16px] text-brand-dark/70 leading-[1.8] font-medium mb-12">
                 <p>{messages.brandStory.para1}</p>
                 <p>{messages.brandStory.para2}</p>
               </div>
+              
+              <Link 
+                href="/process" 
+                className="btn-commerce btn-primary !py-5 !px-12 !text-[13px] !tracking-[0.2em] shadow-xl"
+              >
+                View Our Complete Craftsmanship
+              </Link>
             </div>
           </div>
         </div>

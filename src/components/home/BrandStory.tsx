@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -19,12 +20,15 @@ export default function BrandStory() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative w-full aspect-[4/3] bg-[#F9F7F4] overflow-hidden flex items-center justify-center p-8"
+              className="relative w-full aspect-[4/3] bg-[#F9F7F4] overflow-hidden"
             >
-              <div className="flex flex-col items-center opacity-10 scale-150">
-                <div className="w-[100px] h-[100px] border border-brand-dark rotate-45 mb-4" />
-                <span className="font-sans text-[8px] font-bold tracking-[0.4em] uppercase text-brand-dark">Heritage Visual</span>
-              </div>
+              <Image 
+                src="/images/process/process-1.png" 
+                alt="Gokul Heritage Craftsmanship" 
+                fill 
+                className="object-cover grayscale hover:grayscale-0 transition-all duration-700" 
+              />
+              <div className="absolute inset-0 bg-brand-dark/10" />
             </motion.div>
             
             {/* Soft commercial accent */}
@@ -56,12 +60,20 @@ export default function BrandStory() {
               ))}
             </div>
 
-            <Link 
-              href="/about" 
-              className="btn-commerce btn-secondary !py-4 !px-12 !text-[13px] !tracking-[0.15em] border-brand-dark/15"
-            >
-              {messages.brandStory.btnStory}
-            </Link>
+            <div className="flex flex-wrap gap-4">
+              <Link 
+                href="/about" 
+                className="btn-commerce btn-primary !py-4 !px-10 !text-[13px] !tracking-[0.15em]"
+              >
+                {messages.brandStory.btnStory}
+              </Link>
+              <Link 
+                href="/process" 
+                className="btn-commerce btn-secondary !py-4 !px-10 !text-[13px] !tracking-[0.15em] border-brand-dark/15"
+              >
+                Watch Our Process
+              </Link>
+            </div>
           </motion.div>
           
         </div>

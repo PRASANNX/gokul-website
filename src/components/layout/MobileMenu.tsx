@@ -53,6 +53,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             className="absolute top-full left-0 right-0 bg-white border-b border-brand-border shadow-2xl z-50 lg:hidden overflow-hidden"
           >
             <nav className="flex flex-col">
+              <div className="py-2 px-8 border-b border-brand-border/5 bg-brand-cream/10">
+                <LanguageSwitcher />
+              </div>
               {navLinks.map((link) => (
                 <Link
                   key={link.href}

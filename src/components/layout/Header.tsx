@@ -80,7 +80,7 @@ export default function Header() {
             {/* ACTIONS - Right */}
             <div className="flex items-center gap-4 md:gap-6">
               
-              <div className="hidden sm:block border-r border-brand-border/20 pr-6 mr-2">
+              <div className="flex items-center border-r border-brand-border/20 pr-4 sm:pr-6 mr-1 sm:mr-2">
                 <LanguageSwitcher />
               </div>
 

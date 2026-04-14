@@ -45,6 +45,7 @@ export default function Footer() {
             <div className="flex items-center gap-4 mt-8">
               {[
                 { label: "Instagram", href: SITE_CONFIG.social.instagram },
+                { label: "YouTube",   href: SITE_CONFIG.social.youtube },
                 { label: "Facebook",  href: SITE_CONFIG.social.facebook }
               ].map((social) => (
                 <a 

@@ -15,7 +15,8 @@ export const SITE_CONFIG = {
   maxCodValue: 5000, // Maximum amount allowed for COD
   deliveryTimeline: "Dispatch within 24–48 hours",
   social: {
-    instagram: "https://instagram.com/gokul_ke_shahi_namkeen_",
+    instagram: "https://www.instagram.com/gokul_ke_shahi_namkeen_/",
+    youtube: "https://www.youtube.com/@Gokul_ke_shahi_namkeen",
     facebook: "#",
   },
 };

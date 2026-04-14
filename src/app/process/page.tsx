@@ -42,12 +42,12 @@ export default function ProcessPage() {
       {/* ── GALLERY SECTION ── */}
       <section className="pb-32">
         <div className="container-wide">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             
-            {/* LARGE FEATURE PHOTO (Placeholder 1) */}
+            {/* PHOTO 1 */}
             <motion.div 
-              whileHover={{ y: -5 }}
-              className="md:col-span-8 aspect-[16/10] relative overflow-hidden bg-brand-cream border border-brand-border/10 rounded-sm group"
+              whileHover={{ y: -10 }}
+              className="relative aspect-[9/16] overflow-hidden bg-brand-cream border border-brand-border/10 rounded-sm group"
             >
               <Image 
                 src="/images/process/process-1.png" 
@@ -55,16 +55,16 @@ export default function ProcessPage() {
                 fill 
                 className="object-cover grayscale hover:grayscale-0 transition-all duration-700" 
               />
-              <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors duration-500" />
+              <div className="absolute inset-0 bg-brand-dark/10 group-hover:bg-transparent transition-colors duration-500" />
               <div className="absolute bottom-6 left-6 z-10">
-                 <span className="font-sans text-[10px] font-black uppercase tracking-[0.3em] text-white bg-brand-crimson px-3 py-1">Handcrafted</span>
+                 <span className="font-sans text-[10px] font-black uppercase tracking-[0.3em] text-white bg-brand-crimson px-3 py-1">Authentic</span>
               </div>
             </motion.div>
 
-            {/* SIDE PHOTO (Placeholder 2) */}
+            {/* PHOTO 2 */}
             <motion.div 
-               whileHover={{ y: -5 }}
-               className="md:col-span-4 aspect-square relative overflow-hidden bg-brand-cream border border-brand-border/10 rounded-sm"
+               whileHover={{ y: -10 }}
+               className="relative aspect-[9/16] overflow-hidden bg-brand-cream border border-brand-border/10 rounded-sm group"
             >
                <Image 
                  src="/images/process/process-2.png" 
@@ -72,13 +72,13 @@ export default function ProcessPage() {
                  fill 
                  className="object-cover grayscale hover:grayscale-0 transition-all duration-700" 
                />
-               <div className="absolute inset-0 bg-brand-dark/10" />
+               <div className="absolute inset-0 bg-brand-dark/10 group-hover:bg-transparent transition-colors duration-500" />
             </motion.div>
 
-            {/* SIDE PHOTO (Placeholder 3) */}
+            {/* PHOTO 3 */}
             <motion.div 
-               whileHover={{ y: -5 }}
-               className="md:col-span-4 aspect-square relative overflow-hidden bg-brand-cream border border-brand-border/10 rounded-sm"
+               whileHover={{ y: -10 }}
+               className="relative aspect-[9/16] overflow-hidden bg-brand-cream border border-brand-border/10 rounded-sm group"
             >
                <Image 
                  src="/images/process/process-3.png" 
@@ -86,13 +86,13 @@ export default function ProcessPage() {
                  fill 
                  className="object-cover grayscale hover:grayscale-0 transition-all duration-700" 
                />
-               <div className="absolute inset-0 bg-brand-dark/10" />
+               <div className="absolute inset-0 bg-brand-dark/10 group-hover:bg-transparent transition-colors duration-500" />
             </motion.div>
 
-            {/* LARGE FEATURE PHOTO (Placeholder 4) */}
+            {/* PHOTO 4 */}
             <motion.div 
-               whileHover={{ y: -5 }}
-               className="md:col-span-8 aspect-[16/10] relative overflow-hidden bg-brand-cream border border-brand-border/10 rounded-sm"
+               whileHover={{ y: -10 }}
+               className="relative aspect-[9/16] overflow-hidden bg-brand-cream border border-brand-border/10 rounded-sm group"
             >
                <Image 
                  src="/images/process/process-4.png" 
@@ -100,7 +100,7 @@ export default function ProcessPage() {
                  fill 
                  className="object-cover grayscale hover:grayscale-0 transition-all duration-700" 
                />
-               <div className="absolute inset-0 bg-brand-dark/20" />
+               <div className="absolute inset-0 bg-brand-dark/10 group-hover:bg-transparent transition-colors duration-500" />
             </motion.div>
 
           </div>

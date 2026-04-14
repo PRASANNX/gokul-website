@@ -86,11 +86,15 @@
   }
 
   /* ── Hindi Specific Optimizations ── */
+  [lang="hi"],
+  [lang="hi"] * {
+    font-family: var(--font-devanagari), "Noto Sans Devanagari", sans-serif !important;
+  }
+
   [lang="hi"] {
     font-size: 106%;
-    line-height: 1.6;
-    font-weight: 500;
-    letter-spacing: 0.01em;
+    line-height: 1.7;
+    word-spacing: 0.05em;
   }
 
   [lang="hi"] .display-title,

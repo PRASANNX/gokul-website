@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans, Noto_Sans_Devanagari } from "next/font/google";
 import { SITE_CONFIG } from "@/lib/constants";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -19,6 +19,13 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const notoDevanagari = Noto_Sans_Devanagari({
+  subsets: ["devanagari"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-devanagari",
   display: "swap",
 });
 
@@ -84,7 +91,7 @@ export default async function RootLayout({
       <head>
         <script src="https://checkout.razorpay.com/v1/checkout.js" async></script>
       </head>
-      <body className={`${dmSans.variable} ${cormorant.variable} font-sans antialiased bg-brand-cream text-brand-dark min-h-screen flex flex-col selection:bg-brand-saffron selection:text-white`}>
+      <body className={`${dmSans.variable} ${cormorant.variable} ${notoDevanagari.variable} font-sans antialiased bg-brand-cream text-brand-dark min-h-screen flex flex-col selection:bg-brand-saffron selection:text-white`}>
         <CartProvider>
           <LanguageProvider>
             <Header />

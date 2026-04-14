@@ -25,12 +25,8 @@ export default function Hero() {
                 {messages.hero.eyebrow}
               </span>
 
-              {/* Founder & Tagline — Primary Visual Hierarchy */}
+              {/* Tagline — Primary Visual Hierarchy */}
               <div className="mb-8 flex flex-col items-center lg:items-start gap-3">
-                <span className="inline-flex items-center gap-3 font-sans text-[13px] md:text-[14px] font-black uppercase tracking-[0.25em] text-brand-dark/60 border border-brand-dark/10 px-4 py-2 rounded-full">
-                  <span className="w-2 h-2 rounded-full bg-brand-crimson animate-pulse" />
-                  {messages.hero.founder}
-                </span>
                 <p className="font-sans text-[22px] md:text-[30px] lg:text-[34px] font-extrabold text-brand-dark leading-tight tracking-tight">
                   &ldquo;{messages.hero.tagline}&rdquo;
                 </p>
@@ -99,6 +95,19 @@ export default function Hero() {
               <div className="absolute bottom-0 left-0 p-12 -translate-x-2 translate-y-2 z-10">
                  <div className="w-20 h-20 border-b-2 border-l-2 border-brand-crimson/80" />
               </div>
+            </motion.div>
+
+            {/* Founder Label - Below Photo */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-6 flex flex-col items-center lg:items-end text-right"
+            >
+              <span className="font-sans text-[16px] md:text-[20px] font-black uppercase tracking-[0.15em] text-brand-dark">
+                {messages.hero.founder}
+              </span>
+              <div className="w-12 h-0.5 bg-brand-crimson mt-2" />
             </motion.div>
             
             {/* Ambient Background Accents */}

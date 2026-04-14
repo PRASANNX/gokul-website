@@ -53,7 +53,7 @@ export default function Header() {
             
             {/* LOGO */}
             <Link href="/" className="shrink-0 transition-transform hover:scale-[1.02] active:scale-[0.98]">
-              <div className="relative w-[100px] h-[64px] md:w-[130px] md:h-[82px]">
+              <div className="relative w-[100px] h-[58px] sm:w-[110px] sm:h-[68px] md:w-[130px] md:h-[82px]">
                 <Image
                   src="/images/logo.png"
                   alt="Gokul"

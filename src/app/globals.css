@@ -44,7 +44,7 @@
   }
   
   .container-wide {
-    @apply max-w-[1240px] mx-auto px-6 md:px-10;
+    @apply max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10;
   }
 
   .subtle-divider {
@@ -53,7 +53,7 @@
 
   /* ── Commercial Typography ── */
   .display-title {
-    @apply font-sans font-black text-[36px] md:text-[64px] lg:text-[80px] leading-[1.05] tracking-tight text-brand-dark;
+    @apply font-sans font-black text-[32px] sm:text-[42px] md:text-[64px] lg:text-[80px] leading-[1.05] tracking-tight text-brand-dark;
   }
   
   .section-title {

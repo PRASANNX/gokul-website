@@ -40,8 +40,8 @@ export default function WholesalePage() {
       <section className="pt-32 pb-12 border-b border-brand-border/5">
         <div className="container-wide">
           <Breadcrumb items={[{ label: wholesaleMessages.pageTitle }]} />
-          <h1 className="display-title mt-6 !text-[36px] md:!text-[56px] tracking-tighter">{wholesaleMessages.pageTitle}</h1>
-          <p className="font-sans text-[18px] text-brand-dark/70 mt-4 max-w-2xl font-medium leading-relaxed">
+          <h1 className="display-title mt-6 tracking-tighter">{wholesaleMessages.pageTitle}</h1>
+          <p className="font-sans text-[16px] md:text-[18px] text-brand-dark/70 mt-4 max-w-2xl font-medium leading-relaxed">
             {wholesaleMessages.pageSubtitle}
           </p>
         </div>

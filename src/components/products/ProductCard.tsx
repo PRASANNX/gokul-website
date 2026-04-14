@@ -78,10 +78,10 @@ export default function ProductCard({ product }: ProductCardProps) {
         </Link>
         
         <div className="flex items-center justify-between mb-8 mt-auto">
-          <div className="font-sans text-[18px] md:text-[20px] font-black text-brand-dark lining-nums tracking-tight">
+          <div className="font-sans text-[16px] sm:text-[18px] md:text-[20px] font-black text-brand-dark lining-nums tracking-tight">
             {formatPrice(defaultWeight.price)}
           </div>
-          <div className="font-sans text-[11px] font-black text-brand-dark/40 uppercase tracking-widest bg-brand-cream px-2 py-1 rounded-[2px] border border-brand-border/10">
+          <div className="font-sans text-[10px] sm:text-[11px] font-black text-brand-dark/40 uppercase tracking-widest bg-brand-cream px-2 py-1 rounded-[2px] border border-brand-border/10">
             {defaultWeight.weight}
           </div>
         </div>

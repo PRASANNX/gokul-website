@@ -47,13 +47,18 @@ export default function ProcessPage() {
             {/* LARGE FEATURE PHOTO (Placeholder 1) */}
             <motion.div 
               whileHover={{ y: -5 }}
-              className="md:col-span-8 aspect-[16/10] relative overflow-hidden bg-brand-cream border border-brand-border/10 rounded-sm"
+              className="md:col-span-8 aspect-[16/10] relative overflow-hidden bg-brand-cream border border-brand-border/10 rounded-sm group"
             >
-              <div className="absolute inset-0 flex items-center justify-center opacity-20 p-12">
-                 <span className="font-sans text-[12px] font-black uppercase tracking-widest text-center">Hand-rolling the traditional way</span>
+              <Image 
+                src="/images/process/process-1.png" 
+                alt="Traditional Dough Preparation" 
+                fill 
+                className="object-cover grayscale hover:grayscale-0 transition-all duration-700" 
+              />
+              <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors duration-500" />
+              <div className="absolute bottom-6 left-6 z-10">
+                 <span className="font-sans text-[10px] font-black uppercase tracking-[0.3em] text-white bg-brand-crimson px-3 py-1">Handcrafted</span>
               </div>
-              {/* Once images are uploaded, use Image component: */}
-              {/* <Image src="/images/process/process-1.jpg" alt="Handcrafting" fill className="object-cover" /> */}
             </motion.div>
 
             {/* SIDE PHOTO (Placeholder 2) */}
@@ -61,9 +66,13 @@ export default function ProcessPage() {
                whileHover={{ y: -5 }}
                className="md:col-span-4 aspect-square relative overflow-hidden bg-brand-cream border border-brand-border/10 rounded-sm"
             >
-               <div className="absolute inset-0 flex items-center justify-center opacity-20 p-12">
-                 <span className="font-sans text-[12px] font-black uppercase tracking-widest text-center">Quality Ingredients</span>
-              </div>
+               <Image 
+                 src="/images/process/process-2.png" 
+                 alt="Artisanal Shaping" 
+                 fill 
+                 className="object-cover grayscale hover:grayscale-0 transition-all duration-700" 
+               />
+               <div className="absolute inset-0 bg-brand-dark/10" />
             </motion.div>
 
             {/* SIDE PHOTO (Placeholder 3) */}
@@ -71,9 +80,13 @@ export default function ProcessPage() {
                whileHover={{ y: -5 }}
                className="md:col-span-4 aspect-square relative overflow-hidden bg-brand-cream border border-brand-border/10 rounded-sm"
             >
-               <div className="absolute inset-0 flex items-center justify-center opacity-20 p-12">
-                 <span className="font-sans text-[12px] font-black uppercase tracking-widest text-center">Traditional Frying</span>
-              </div>
+               <Image 
+                 src="/images/process/process-3.png" 
+                 alt="Frying Process" 
+                 fill 
+                 className="object-cover grayscale hover:grayscale-0 transition-all duration-700" 
+               />
+               <div className="absolute inset-0 bg-brand-dark/10" />
             </motion.div>
 
             {/* LARGE FEATURE PHOTO (Placeholder 4) */}
@@ -81,9 +94,13 @@ export default function ProcessPage() {
                whileHover={{ y: -5 }}
                className="md:col-span-8 aspect-[16/10] relative overflow-hidden bg-brand-cream border border-brand-border/10 rounded-sm"
             >
-               <div className="absolute inset-0 flex items-center justify-center opacity-20 p-12">
-                 <span className="font-sans text-[12px] font-black uppercase tracking-widest text-center">The Perfect Crunch</span>
-              </div>
+               <Image 
+                 src="/images/process/process-4.png" 
+                 alt="The Final Batch" 
+                 fill 
+                 className="object-cover grayscale hover:grayscale-0 transition-all duration-700" 
+               />
+               <div className="absolute inset-0 bg-brand-dark/20" />
             </motion.div>
 
           </div>

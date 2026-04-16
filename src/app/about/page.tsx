@@ -14,14 +14,14 @@ export default function AboutPage() {
   return (
     <main className="bg-[#FAF9F6] min-h-screen">
       <BilingualSEO pageKey="about" />
-      
+
       {/* ── HEADER ── */}
       <section className="pt-32 pb-12 md:pt-40 md:pb-20">
         <div className="container-wide">
           <div className="mb-8 opacity-50">
             <Breadcrumb items={[{ label: messages.nav.about }]} />
           </div>
-          
+
           <div className="max-w-[900px]">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -46,11 +46,11 @@ export default function AboutPage() {
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
             <div className="w-full lg:w-1/2">
               <div className="relative aspect-[4/3] bg-[#FAF9F6] overflow-hidden">
-                <Image 
-                  src="/images/banners/IMG_9716.jpg" 
-                  alt="Gokul Heritage Shop" 
-                  fill 
-                  className="object-cover transition-all duration-700" 
+                <Image
+                  src="/images/banners/IMG_9716.jpg"
+                  alt="Gokul Heritage Shop"
+                  fill
+                  className="object-cover transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-brand-dark/5" />
                 {/* Decorative accent */}
@@ -68,9 +68,9 @@ export default function AboutPage() {
                 <p>{messages.brandStory.para1}</p>
                 <p>{messages.brandStory.para2}</p>
               </div>
-              
-              <Link 
-                href="/process" 
+
+              <Link
+                href="/process"
                 className="btn-commerce btn-primary !py-5 !px-12 !text-[13px] !tracking-[0.2em] shadow-xl"
               >
                 {messages.about.storyCta}
@@ -95,7 +95,7 @@ export default function AboutPage() {
               { title: messages.whyChooseUs.features.fresh.title, desc: messages.whyChooseUs.features.fresh.desc },
               { title: messages.whyChooseUs.features.shipping.title, desc: messages.whyChooseUs.features.shipping.desc },
             ].map((v, i) => (
-              <motion.div 
+              <motion.div
                 key={v.title}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}

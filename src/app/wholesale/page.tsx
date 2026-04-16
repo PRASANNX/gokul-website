@@ -87,6 +87,8 @@ export default function WholesalePage() {
                         type="tel" 
                         id="phone" 
                         required 
+                        pattern="[0-9]{10}"
+                        title={lang === "hi" ? "कृपया 10 अंकों का फोन नंबर दर्ज करें" : "Please enter a 10-digit phone number"}
                         value={formData.phone}
                         onChange={handleInputChange}
                         className="border border-brand-border/20 bg-[#FAF9F6] p-4 text-[14px] font-sans focus:outline-none focus:border-brand-crimson transition-colors" 

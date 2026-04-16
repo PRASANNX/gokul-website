@@ -26,8 +26,8 @@ export default function Header() {
   const navLinks = [
     { label: messages.nav.home,         href: "/" },
     { label: messages.nav.products,     href: "/products" },
-    { label: messages.nav.process,      href: "/process" },
     { label: messages.wholesale.pageTitle, href: "/wholesale" },
+    { label: "Gift Packs",              href: "/gift-packs" },
     { label: messages.nav.about,        href: "/about" },
     { label: messages.nav.contact,      href: "/contact" },
   ];
@@ -65,32 +65,33 @@ export default function Header() {
             </Link>
 
             {/* NAV LINKS - Center */}
-            <nav className="hidden lg:flex items-center gap-10 xl:gap-14">
+            <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="font-sans text-[12px] font-black text-brand-dark hover:text-brand-crimson transition-colors tracking-[0.18em] uppercase whitespace-nowrap"
+                  className="relative group font-sans text-[12px] font-black text-brand-dark/90 hover:text-brand-crimson transition-colors tracking-[0.18em] uppercase whitespace-nowrap"
                 >
                   {link.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-brand-crimson transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
             </nav>
 
             {/* ACTIONS - Right */}
-            <div className="flex items-center gap-4 md:gap-6">
+            <div className="flex items-center gap-3 md:gap-5">
               
-              <div className="flex items-center border-r border-brand-border/20 pr-4 sm:pr-6 mr-1 sm:mr-2">
+              <div className="flex items-center border-r border-brand-border/20 pr-3 sm:pr-4">
                 <LanguageSwitcher />
               </div>
 
               {/* Cart Icon */}
               <Link 
                 href="/cart" 
-                className="relative group flex items-center justify-center w-11 h-11 bg-brand-cream/50 hover:bg-brand-crimson/10 transition-colors rounded-full border border-brand-border/10"
+                className="relative group flex items-center justify-center w-10 h-10 bg-brand-cream/50 hover:bg-brand-crimson/10 transition-colors rounded-full border border-brand-border/10 mr-1"
                 aria-label={messages.common.cart}
               >
-                <svg className="w-5.5 h-5.5 text-brand-dark group-hover:text-brand-crimson transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-brand-dark group-hover:text-brand-crimson transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
                 {isClient && cartCount > 0 && (
@@ -100,10 +101,16 @@ export default function Header() {
                 )}
               </Link>
 
-              <div className="hidden lg:flex items-center gap-4">
+              <div className="hidden lg:flex items-center gap-3">
+                <a 
+                  href={`tel:${SITE_CONFIG.phone}`}
+                  className="font-sans text-[11px] font-black uppercase tracking-[0.15em] text-brand-dark border border-brand-dark/20 px-4 py-2.5 rounded-[4px] hover:border-brand-dark hover:bg-brand-cream/30 transition-all"
+                >
+                  Call Now
+                </a>
                 <Link 
                   href="/products" 
-                  className="btn-commerce btn-primary !py-3.5 !px-8 !text-[12px] !tracking-[0.2em] shadow-lg hover:-translate-y-0.5 transition-all !rounded-[4px]"
+                  className="btn-commerce btn-primary !py-2.5 !px-6 !text-[11px] !tracking-[0.15em] shadow-md hover:-translate-y-0.5 transition-all !rounded-[4px]"
                 >
                   {messages.nav.orderOnline}
                 </Link>

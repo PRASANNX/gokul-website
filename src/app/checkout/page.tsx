@@ -230,9 +230,9 @@ export default function CheckoutPage() {
                   <h2 className="card-title text-[18px] md:text-[22px] uppercase tracking-tight">{messages.checkout.customerDetails}</h2>
                 </div>
 
-                <div className="grid gap-6">
+                <div className="grid gap-8">
                   <div className="flex flex-col gap-2">
-                    <label className="text-[11px] font-black text-brand-dark/40 uppercase tracking-widest">{messages.checkout.fullName}</label>
+                    <label className="text-[11px] font-black text-brand-dark/50 uppercase tracking-widest">{messages.checkout.fullName}</label>
                     <input 
                       type="text" 
                       name="fullName"
@@ -240,13 +240,13 @@ export default function CheckoutPage() {
                       onChange={handleInputChange}
                       placeholder="Enter your full name"
                       required 
-                      className="border border-brand-border/30 bg-brand-cream/20 p-4.5 text-[15px] font-sans focus:outline-none focus:border-brand-dark transition-all rounded-[4px]" 
+                      className="border border-brand-border/30 bg-brand-cream/10 p-5 text-[15px] font-sans focus:outline-none focus:border-brand-dark focus:bg-white transition-all rounded-[6px]" 
                     />
                   </div>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="flex flex-col gap-2">
-                      <label className="text-[11px] font-black text-brand-dark/40 uppercase tracking-widest flex justify-between">
+                      <label className="text-[11px] font-black text-brand-dark/50 uppercase tracking-widest flex justify-between">
                          {messages.checkout.phone} 
                          <span className="text-[10px] lowercase font-medium italic opacity-50">(10 digits)</span>
                       </label>
@@ -258,11 +258,11 @@ export default function CheckoutPage() {
                         maxLength={10}
                         placeholder="e.g. 9876543210"
                         required 
-                        className="border border-brand-border/30 bg-brand-cream/20 p-4.5 text-[15px] font-sans focus:outline-none focus:border-brand-dark transition-all rounded-[4px] lining-nums" 
+                        className="border border-brand-border/30 bg-brand-cream/10 p-5 text-[15px] font-sans focus:outline-none focus:border-brand-dark focus:bg-white transition-all rounded-[6px] lining-nums" 
                       />
                     </div>
                     <div className="flex flex-col gap-2">
-                      <label className="text-[11px] font-black text-brand-dark/40 uppercase tracking-widest">{messages.checkout.city}</label>
+                      <label className="text-[11px] font-black text-brand-dark/50 uppercase tracking-widest">{messages.checkout.city}</label>
                       <input 
                         type="text" 
                         name="city"
@@ -270,13 +270,13 @@ export default function CheckoutPage() {
                         onChange={handleInputChange}
                         placeholder="City name"
                         required 
-                        className="border border-brand-border/30 bg-brand-cream/20 p-4.5 text-[15px] font-sans focus:outline-none focus:border-brand-dark transition-all rounded-[4px]" 
+                        className="border border-brand-border/30 bg-brand-cream/10 p-5 text-[15px] font-sans focus:outline-none focus:border-brand-dark focus:bg-white transition-all rounded-[6px]" 
                       />
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <label className="text-[11px] font-black text-brand-dark/40 uppercase tracking-widest">{messages.checkout.address}</label>
+                    <label className="text-[11px] font-black text-brand-dark/50 uppercase tracking-widest">{messages.checkout.address}</label>
                     <textarea 
                       name="address"
                       value={formData.address}
@@ -284,12 +284,12 @@ export default function CheckoutPage() {
                       placeholder="House No, Street, Landmark..."
                       required 
                       rows={3}
-                      className="border border-brand-border/30 bg-brand-cream/20 p-4.5 text-[15px] font-sans focus:outline-none focus:border-brand-dark transition-all rounded-[4px] resize-none"
+                      className="border border-brand-border/30 bg-brand-cream/10 p-5 text-[15px] font-sans focus:outline-none focus:border-brand-dark focus:bg-white transition-all rounded-[6px] resize-none"
                     />
                   </div>
 
                   <div className="flex flex-col gap-2 max-w-[200px]">
-                    <label className="text-[11px] font-black text-brand-dark/40 uppercase tracking-widest">{messages.checkout.pincode}</label>
+                    <label className="text-[11px] font-black text-brand-dark/50 uppercase tracking-widest">{messages.checkout.pincode}</label>
                     <input 
                       type="text" 
                       name="pincode"
@@ -298,7 +298,7 @@ export default function CheckoutPage() {
                       placeholder="6 digits"
                       maxLength={6}
                       required 
-                      className="border border-brand-border/30 bg-brand-cream/20 p-4.5 text-[15px] font-sans focus:outline-none focus:border-brand-dark transition-all rounded-[4px] lining-nums" 
+                      className="border border-brand-border/30 bg-brand-cream/10 p-5 text-[15px] font-sans focus:outline-none focus:border-brand-dark focus:bg-white transition-all rounded-[6px] lining-nums" 
                     />
                   </div>
                 </div>
@@ -392,13 +392,13 @@ export default function CheckoutPage() {
                     <span className="text-brand-crimson font-black tracking-widest">{messages.checkout.free}</span>
                   </div>
                   
-                  <div className="flex justify-between items-end pt-6">
-                    <span className="card-title !text-[18px] uppercase">{messages.orderSuccess.total}</span>
+                  <div className="flex justify-between items-end pt-8">
+                    <span className="card-title !text-[20px] uppercase">{messages.orderSuccess.total}</span>
                     <div className="flex flex-col items-end">
-                      <span className="font-sans text-[32px] md:text-[40px] font-black text-brand-dark lining-nums leading-none tracking-tighter">
+                      <span className="font-sans text-[36px] md:text-[46px] font-black text-brand-crimson lining-nums leading-none tracking-tighter drop-shadow-sm">
                         {formatPrice(cartTotal)}
                       </span>
-                      <span className="text-[10px] font-bold text-brand-dark/40 uppercase mt-2">Inclusive of all taxes</span>
+                      <span className="text-[11px] font-bold text-brand-dark/40 uppercase mt-2">Inclusive of all taxes</span>
                     </div>
                   </div>
                 </div>
@@ -412,7 +412,7 @@ export default function CheckoutPage() {
                 <button
                   type="submit"
                   disabled={isProcessing}
-                  className="btn-commerce btn-primary w-full !py-6 mt-10 text-[16px] !tracking-[0.2em] shadow-xl disabled:opacity-50 active:scale-[0.97] transition-all"
+                  className="btn-commerce bg-brand-dark text-white hover:bg-black w-full !py-6 mt-12 text-[18px] !tracking-[0.2em] shadow-2xl disabled:opacity-50 active:scale-[0.97] transition-all rounded-[6px] border-b-4 border-brand-crimson"
                 >
                   {isProcessing ? messages.checkout.processing : messages.checkout.placeOrder}
                 </button>

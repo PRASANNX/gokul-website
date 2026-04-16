@@ -10,9 +10,9 @@ export default function Hero() {
   const { messages } = useLanguage();
 
   return (
-    <section className="relative w-full bg-white pt-24 pb-12 md:pt-32 md:pb-24 overflow-hidden">
+    <section className="relative w-full bg-white pt-20 pb-10 md:pt-28 md:pb-16 overflow-hidden">
       <div className="container-wide">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
           
           {/* ── TEXT CONTENT ── */}
           <div className="w-full lg:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-left z-10">
@@ -37,20 +37,20 @@ export default function Hero() {
                 {messages.hero.titleEnd}
               </h1>
 
-              <p className="font-sans text-[16px] md:text-[18px] text-brand-dark/85 leading-relaxed max-w-[540px] mb-10 font-medium">
+              <p className="font-sans text-[16px] md:text-[18px] text-brand-dark/85 leading-relaxed max-w-[480px] mb-8 font-medium">
                 {messages.hero.subtitle}
               </p>
 
-              <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-4">
+              <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-3">
                 <Link 
                   href="/products" 
-                  className="btn-commerce btn-primary w-full sm:w-auto !py-4.5 !px-12 !text-[15px] !tracking-[0.15em] shadow-xl hover:-translate-y-1 transition-transform"
+                  className="btn-commerce btn-primary w-full sm:w-auto !py-4 !px-10 !text-[15px] !tracking-[0.15em] shadow-xl hover:-translate-y-1 transition-transform"
                 >
                   {messages.hero.btnShop}
                 </Link>
                 <Link 
                   href="/wholesale" 
-                  className="btn-commerce btn-secondary w-full sm:w-auto border-brand-dark/10 !py-4.5 !px-10 hover:border-brand-dark"
+                  className="btn-commerce btn-secondary w-full sm:w-auto border-brand-dark/10 !py-4 !px-8 hover:border-brand-dark"
                 >
                   {messages.wholesale.pageTitle}
                 </Link>
@@ -73,7 +73,7 @@ export default function Hero() {
           </div>
 
           {/* ── VISUAL BLOCK ── */}
-          <div className="w-full lg:w-[45%] relative mt-12 lg:mt-0">
+          <div className="w-full lg:w-[48%] relative mt-10 lg:mt-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}

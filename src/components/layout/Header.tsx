@@ -25,7 +25,7 @@ export default function Header() {
     { label: messages.nav.home,         href: "/" },
     { label: messages.nav.products,     href: "/products" },
     { label: messages.wholesale.pageTitle, href: "/wholesale" },
-    { label: "Gift Packs",              href: "/gift-packs" },
+    { label: messages.nav.process,      href: "/process" },
     { label: messages.nav.about,        href: "/about" },
     { label: messages.nav.contact,      href: "/contact" },
   ];

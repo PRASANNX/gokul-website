@@ -47,7 +47,7 @@ export default function AboutPage() {
             <div className="w-full lg:w-1/2">
               <div className="relative aspect-[4/3] bg-[#FAF9F6] overflow-hidden">
                 <Image
-                  src="/images/banners/IMG_9716.jpg"
+                  src="/images/banners/IMG_9716.JPG"
                   alt="Gokul Heritage Shop"
                   fill
                   className="object-cover transition-all duration-700"

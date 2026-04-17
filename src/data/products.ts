@@ -45,9 +45,9 @@ const generateBaseProduct = (
     availability: "in-stock",
     tags: [categorySlug, "Indore Special", "Fresh"],
     weightOptions: [
-      { weight: "250g", price: 120 },
-      { weight: "500g", price: 230 },
       { weight: "1kg",  price: 450 },
+      { weight: "500g", price: 230 },
+      { weight: "250g", price: 120 },
     ],
     rating: bestseller ? 4.9 : 4.6,
     reviewCount: bestseller ? 124 : 45,

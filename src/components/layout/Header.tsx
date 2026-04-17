@@ -7,11 +7,13 @@ import { SITE_CONFIG } from "@/lib/constants";
 import MobileMenu from "./MobileMenu";
 import LanguageSwitcher from "@/components/common/LanguageSwitcher";
 import { useLanguage } from "@/context/LanguageContext";
+import { useCart } from "@/context/CartContext";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { messages, lang } = useLanguage();
+  const { cartCount, isClient } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -82,6 +84,22 @@ export default function Header() {
               <div className="flex items-center border-r border-brand-border/20 pr-3 sm:pr-4 mr-2">
                 <LanguageSwitcher />
               </div>
+
+              {/* Cart Icon */}
+              <Link 
+                href="/cart" 
+                className="relative group flex items-center justify-center w-10 h-10 bg-brand-cream/50 hover:bg-brand-crimson/10 transition-colors rounded-full border border-brand-border/10 mr-1"
+                aria-label={messages.common.cart}
+              >
+                <svg className="w-5 h-5 text-brand-dark group-hover:text-brand-crimson transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+                {isClient && cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-brand-crimson text-brand-dark text-[10px] font-black flex items-center justify-center rounded-full shadow-sm animate-in zoom-in duration-300">
+                    {cartCount}
+                  </span>
+                )}
+              </Link>
 
               <div className="hidden lg:flex items-center gap-3">
                 <a 

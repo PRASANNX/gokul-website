@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import GlobalWhatsApp from "@/components/common/GlobalWhatsApp";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { CartProvider } from "@/context/CartContext";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -88,6 +89,7 @@ export default async function RootLayout({
   return (
     <html lang={lang} className="scroll-smooth" data-scroll-behavior="smooth">
       <body className={`${dmSans.variable} ${cormorant.variable} ${notoDevanagari.variable} font-sans antialiased bg-brand-cream text-brand-dark min-h-screen flex flex-col selection:bg-brand-saffron selection:text-white`}>
+        <CartProvider>
           <LanguageProvider>
             <Header />
             
@@ -99,6 +101,7 @@ export default async function RootLayout({
             
             <GlobalWhatsApp />
           </LanguageProvider>
+        </CartProvider>
       </body>
     </html>
   );

@@ -97,6 +97,7 @@ export default function CartPage() {
                       <div className="flex items-center border border-brand-border/20 p-1">
                         <button 
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                          aria-label="Decrease quantity"
                           className="w-10 h-10 flex items-center justify-center text-brand-dark hover:bg-brand-border/5 transition-colors"
                         >
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4"/></svg>
@@ -106,6 +107,7 @@ export default function CartPage() {
                         </span>
                         <button 
                           onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                          aria-label="Increase quantity"
                           className="w-10 h-10 flex items-center justify-center text-brand-dark hover:bg-brand-border/5 transition-colors"
                         >
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4"/></svg>
@@ -121,6 +123,7 @@ export default function CartPage() {
                       </div>
                       <button 
                         onClick={() => removeItem(item.id)}
+                        aria-label="Remove item"
                         className="hidden md:flex w-8 h-8 items-center justify-center text-brand-dark/50 hover:text-brand-crimson transition-colors ml-4"
                       >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12"/></svg>

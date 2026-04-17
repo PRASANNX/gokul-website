@@ -51,6 +51,7 @@ export default function AboutPage() {
                   alt="Gokul Heritage Shop"
                   fill
                   className="object-cover transition-all duration-700"
+                  unoptimized
                 />
                 <div className="absolute inset-0 bg-brand-dark/5" />
                 {/* Decorative accent */}

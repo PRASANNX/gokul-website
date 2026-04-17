@@ -1,26 +1,18 @@
 "use client";
 
 import React from "react";
-import { useCart } from "@/context/CartContext";
 import { useLanguage } from "@/context/LanguageContext";
-import { getCartCheckoutUrl } from "@/lib/whatsapp";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export default function GlobalWhatsApp() {
-  const { items, isClient } = useCart();
   const { lang } = useLanguage();
-
-  if (!isClient) return null;
 
   // Generic message
   const genericUrl = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(SITE_CONFIG.whatsappMessage)}`;
-  
-  // Conditionally switch dynamic link
-  const finalUrl = items.length > 0 ? getCartCheckoutUrl(items, lang) : genericUrl;
 
   return (
     <a 
-      href={finalUrl}
+      href={genericUrl}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 lg:bottom-10 lg:right-10 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_8px_24px_rgba(37,211,102,0.4)] hover:scale-110 hover:shadow-[0_12px_32px_rgba(37,211,102,0.5)] transition-all duration-300 z-50 group"

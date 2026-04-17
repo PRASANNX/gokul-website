@@ -7,7 +7,6 @@ import { SITE_CONFIG } from "@/lib/constants";
 import MobileMenu from "./MobileMenu";
 import LanguageSwitcher from "@/components/common/LanguageSwitcher";
 import { useLanguage } from "@/context/LanguageContext";
-import { useLanguage } from "@/context/LanguageContext";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);

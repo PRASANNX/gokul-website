@@ -180,7 +180,7 @@ export const products: Product[] = [
   generateWeightProduct("Gud Patti Round",   "गुड़ पट्टी गोल",     "other", "200gm", 50, false, "Round jaggery brittle for a classic sweet crunch.", "क्लासिक मीठे कुरकुराहट के लिए गोल गुड़ पट्टी।"),
   generateWeightProduct("Gud Patti Square",  "गुड़ पट्टी चौकोर",   "other", "200gm", 50, false, "Square-cut jaggery brittle for a perfectly balanced bite.", "एकदम संतुलित स्वाद के लिए चौकोर कटी गुड़ पट्टी।"),
   generateWeightProduct("Chana Jor Garam",   "चना जोर गरम",        "other", "200gm", 50, true,  "Flat roasted gram with tangy spices.", "तीखे मसालों के साथ चपटे भुने चने।"),
-  generateBaseProduct("Shahi Sohan Papdi", "शाही सोहन पापड़ी",   "other", true,  "Flaky, melt-in-the-mouth traditional sweet.", "परतदार, मुँह में पिघलने वाली पारंपरिक मिठाई।"),
+  generateWeightProduct("Shahi Sohan Papdi", "शाही सोहन पापड़ी",   "other", "250gm", 70, true,  "Flaky, melt-in-the-mouth traditional sweet.", "परतदार, मुँह में पिघलने वाली पारंपरिक मिठाई।"),
 ];
 
 // ─── Query helpers ─────────────────────────────────────────────────────────────

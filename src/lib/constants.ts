@@ -11,7 +11,7 @@ export const SITE_CONFIG = {
   address: "542/7, Nehru Nagar, Indore, MP 452011",
   established: "1996",
   yearsOfExperience: new Date().getFullYear() - 1996,
-  minOrderValue: 250, // Minimum order amount in INR
+  minOrderValue: 240, // Minimum order amount in INR
   maxCodValue: 5000, // Maximum amount allowed for COD
   deliveryTimeline: "Dispatch within 24–48 hours",
   social: {

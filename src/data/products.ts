@@ -54,6 +54,21 @@ const generateBaseProduct = (
   };
 };
 
+const generateWeightProduct = (
+  nameEn: string,
+  nameHi: string,
+  categorySlug: string,
+  weight: string,
+  price: number,
+  bestseller: boolean = false,
+  descEn?: string,
+  descHi?: string
+): Product => {
+  const p = generateBaseProduct(nameEn, nameHi, categorySlug, bestseller, descEn, descHi);
+  p.weightOptions = [{ weight, price }];
+  return p;
+};
+
 // ─── Products ─────────────────────────────────────────────────────────────────
 
 export const products: Product[] = [
@@ -99,7 +114,7 @@ export const products: Product[] = [
   generateBaseProduct("Rajgira Shakar Ladoo",      "राजगिरा शकर लड्डू",     "fariyali", false, "Fasting ladoos made with rajgira and sugar.", "राजगिरा और चीनी से बने उपवास के लड्डू।"),
   generateBaseProduct("Kela Chips",                "केला चिप्स",             "fariyali", false, "Crispy banana chips, a vrat-time favourite.", "कुरकुरी केला चिप्स — व्रत के समय की पसंद।"),
   generateBaseProduct("Kali Mirch South Kela Chips","काली मिर्च साउथ केला चिप्स","fariyali", false, "South-style banana chips with black pepper seasoning.", "काली मिर्च के साथ दक्षिण-शैली की केला चिप्स।"),
-  generateBaseProduct("Rajgira Patti",             "राजगिरा पट्टी",          "fariyali", false, "Crunchy rajgira brittle ideal for fasting snacks.", "उपवास के स्नैक के लिए एकदम सही कुरकुरी राजगिरा पट्टी।"),
+  generateWeightProduct("Rajgira Patti",             "राजगिरा पट्टी",          "fariyali", "200gm", 50, false, "Crunchy rajgira brittle ideal for fasting snacks.", "उपवास के स्नैक के लिए एकदम सही कुरकुरी राजगिरा पट्टी।"),
 
   // ── DAL & DANA ──
   generateBaseProduct("Dal Mot Meethi",              "दाल मोट मीठी",              "dal", false, "Sweet-coated dal snack with a crunchy finish.", "मीठी परत वाला दाल स्नैक — कुरकुरी समाप्ति के साथ।"),
@@ -131,23 +146,23 @@ export const products: Product[] = [
   generateBaseProduct("Chawal Phali",           "चावल फली",            "maida", false, "Classic crispy chawal phali snack for tea-time.", "चाय के समय के लिए क्लासिक कुरकुरी चावल फली।"),
 
   // ── BISCUITS & CHAKLI ──
-  generateBaseProduct("Khari",                  "खारी",                  "biscuits", false, "Light, flaky khari with a crisp buttery texture.", "हल्की, परतदार खारी — कुरकुरी बटरी बनावट के साथ।"),
-  generateBaseProduct("Chocolate Coconut Biscuit","चॉकलेट नारियल बिस्किट","biscuits", false, "A delightful fusion of chocolate and coconut.", "चॉकलेट और नारियल का एक आनंददायक संयोजन।"),
-  generateBaseProduct("Ajwain Biscuit",         "अजवाइन बिस्किट",       "biscuits", false, "Savoury biscuits flavoured with aromatic ajwain.", "सुगंधित अजवाइन के स्वाद वाले नमकीन बिस्किट।"),
-  generateBaseProduct("Orange Nan Khatai",      "ऑरेंज नान खटाई",       "biscuits", false, "Soft, crumbly nan khatai with a citrusy note.", "खट्टे नोट के साथ मुलायम और टूटने वाली नान खटाई।"),
-  generateBaseProduct("Nan Khatai",             "नान खटाई",             "biscuits", false, "Traditional Indian shortbread cookie, soft and crumbly.", "पारंपरिक भारतीय शॉर्टब्रेड कुकी — मुलायम और टूटने वाली।"),
-  generateBaseProduct("Double Cracker",         "डबल क्रैकर",             "biscuits", false, "Extra crisp cracker-style biscuits for light snacking.", "हल्के स्नैकिंग के लिए अतिरिक्त कुरकुरे क्रैकर-स्टाइल बिस्किट।"),
-  generateBaseProduct("Double Decker",          "डबल डेकर",             "biscuits", false, "Layered crispy biscuits with a unique texture.", "अनोखी बनावट के साथ परतदार कुरकुरे बिस्किट।"),
-  generateBaseProduct("Choco Chips Biscuit",    "चॉको चिप्स बिस्किट",   "biscuits", false, "Crunchy biscuits loaded with chocolate chip flavour.", "चॉकलेट चिप के स्वाद से भरे कुरकुरे बिस्किट।"),
-  generateBaseProduct("Jeera Biscuit",          "जीरा बिस्किट",          "biscuits", false, "Classic cumin biscuits with a light savoury crunch.", "हल्के नमकीन कुरकुरेपन के साथ क्लासिक जीरा बिस्किट।"),
-  generateBaseProduct("Kaju Biscuit",           "काजू बिस्किट",          "biscuits", true,  "Rich, buttery cashew cookies.", "समृद्ध और बटरी काजू कुकीज़।"),
-  generateBaseProduct("Chhote Kaju Biscuit",    "छोटे काजू बिस्किट",    "biscuits", false, "Smaller cashew biscuits with the same rich flavour.", "उसी समृद्ध स्वाद के साथ छोटे काजू बिस्किट।"),
-  generateBaseProduct("Fruit Biscuit",          "फ्रूट बिस्किट",         "biscuits", false, "Classic fruit biscuits with a sweet bakery-style taste.", "मीठे बेकरी-शैली के स्वाद के साथ क्लासिक फ्रूट बिस्किट।"),
-  generateBaseProduct("Methi Masala Chakli",    "मेथी मसाला चकली",      "biscuits", true,  "Crispy spiral snacks flavoured with fenugreek.", "मेथी के स्वाद वाली कुरकुरी सर्पिल चकली।"),
-  generateBaseProduct("Butter Chakli",          "बटर चकली",              "biscuits", false, "Smooth buttery chakli with a rich savoury finish.", "समृद्ध नमकीन खत्म के साथ स्मूथ बटरी चकली।"),
-  generateBaseProduct("Masala Chakli",          "मसाला चकली",            "biscuits", false, "Spiced chakli with a bold crunchy flavour.", "बोल्ड कुरकुरे स्वाद के साथ मसालेदार चकली।"),
-  generateBaseProduct("Lahsun Chakli",          "लहसुन चकली",            "biscuits", false, "Garlic-flavoured chakli for spice lovers.", "मसाला प्रेमियों के लिए लहसुन के स्वाद की चकली।"),
-  generateBaseProduct("Soft Chakli",            "सॉफ्ट चकली",            "biscuits", false, "A softer variation of chakli with gentle seasoning.", "हल्के मसाले के साथ चकली का एक नरम संस्करण।"),
+  generateWeightProduct("Khari",                  "खारी",                  "biscuits", "200gm", 70, false, "Light, flaky khari with a crisp buttery texture.", "हल्की, परतदार खारी — कुरकुरी बनावट के साथ।"),
+  generateWeightProduct("Chocolate Coconut Biscuit","चॉकलेट नारियल बिस्किट","biscuits", "200gm", 70, false, "A delightful fusion of chocolate and coconut.", "चॉकलेट और नारियल का एक आनंददायक संयोजन।"),
+  generateWeightProduct("Ajwain Biscuit",         "अजवाइन बिस्किट",       "biscuits", "200gm", 70, false, "Savoury biscuits flavoured with aromatic ajwain.", "सुगंधित अजवाइन के स्वाद वाले नमकीन बिस्किट।"),
+  generateWeightProduct("Orange Nan Khatai",      "ऑरेंज नान खटाई",       "biscuits", "200gm", 70, false, "Soft, crumbly nan khatai with a citrusy note.", "खट्टे नोट के साथ मुलायम और टूटने वाली नान खटाई।"),
+  generateWeightProduct("Nan Khatai",             "नान खटाई",             "biscuits", "200gm", 70, false, "Traditional Indian shortbread cookie, soft and crumbly.", "पारंपरिक भारतीय शॉर्टब्रेड कुकी — मुलायम और टूटने वाली।"),
+  generateWeightProduct("Double Cracker",         "डबल क्रैकर",             "biscuits", "200gm", 70, false, "Extra crisp cracker-style biscuits for light snacking.", "हल्के स्नैकिंग के लिए अतिरिक्त कुरकुरे क्रैकर-स्टाइल बिस्किट।"),
+  generateWeightProduct("Double Decker",          "डबल डेकर",             "biscuits", "200gm", 70, false, "Layered crispy biscuits with a unique texture.", "अनोखी बनावट के साथ परतदार कुरकुरे बिस्किट।"),
+  generateWeightProduct("Choco Chips Biscuit",    "चॉको चिप्स बिस्किट",   "biscuits", "200gm", 70, false, "Crunchy biscuits loaded with chocolate chip flavour.", "चॉकलेट चिप के स्वाद से भरे कुरकुरे बिस्किट।"),
+  generateWeightProduct("Jeera Biscuit",          "जीरा बिस्किट",          "biscuits", "200gm", 70, false, "Classic cumin biscuits with a light savoury crunch.", "हल्के नमकीन कुरकुरेपन के साथ क्लासिक जीरा बिस्किट।"),
+  generateWeightProduct("Kaju Biscuit",           "काजू बिस्किट",          "biscuits", "200gm", 70, true,  "Rich, buttery cashew cookies.", "समृद्ध और बटरी काजू कुकीज़।"),
+  generateWeightProduct("Chhote Kaju Biscuit",    "छोटे काजू बिस्किट",    "biscuits", "200gm", 70, false, "Smaller cashew biscuits with the same rich flavour.", "उसी समृद्ध स्वाद के साथ छोटे काजू बिस्किट।"),
+  generateWeightProduct("Fruit Biscuit",          "फ्रूट बिस्किट",         "biscuits", "200gm", 70, false, "Classic fruit biscuits with a sweet bakery-style taste.", "मीठे बेकरी-शैली के स्वाद के साथ क्लासिक फ्रूट बिस्किट।"),
+  generateWeightProduct("Methi Masala Chakli",    "मेथी मसाला चकली",      "biscuits", "100gm", 50, true,  "Crispy spiral snacks flavoured with fenugreek.", "मेथी के स्वाद वाली कुरकुरी सर्पिल चकली।"),
+  generateWeightProduct("Butter Chakli",          "बटर चकली",              "biscuits", "100gm", 50, false, "Smooth buttery chakli with a rich savoury finish.", "समृद्ध नमकीन खत्म के साथ स्मूथ बटरी चकली।"),
+  generateWeightProduct("Masala Chakli",          "मसाला चकली",            "biscuits", "100gm", 50, false, "Spiced chakli with a bold crunchy flavour.", "बोल्ड कुरकुरे स्वाद के साथ मसालेदार चकली।"),
+  generateWeightProduct("Lahsun Chakli",          "लहसुन चकली",            "biscuits", "200gm", 50, false, "Garlic-flavoured chakli for spice lovers.", "मसाला प्रेमियों के लिए लहसुन के स्वाद की चकली।"),
+  generateWeightProduct("Soft Chakli",            "सॉफ्ट चकली",            "biscuits", "100gm", 50, false, "A softer variation of chakli with gentle seasoning.", "हल्के मसाले के साथ चकली का एक नरम संस्करण।"),
 
   // ── OTHER ──
   generateBaseProduct("Besan Papdi Fiki",   "बेसन पापड़ी फीकी",   "other", false, "Mild besan papdi with a light, simple flavour.", "हल्के, सादे स्वाद के साथ बेसन पापड़ी।"),
@@ -157,15 +172,14 @@ export const products: Product[] = [
   generateBaseProduct("Fiki Boondi",        "फीकी बूंदी",         "other", false, "Plain boondi with a mild and versatile taste.", "हल्के और बहुुउद्देशीय स्वाद के साथ सादी बूंदी।"),
   generateBaseProduct("Bhavnagari Gathiya", "भावनगरी गाठिया",     "other", false, "Classic Bhavnagari-style thick gathiya.", "क्लासिक भावनगरी-शैली की मोटी गाठिया।"),
   generateBaseProduct("Rasbhari",           "रसभरी",              "other", false, "A sweet traditional treat with nostalgic flavour.", "नॉस्टेल्जिक स्वाद के साथ एक मीठी पारंपरिक मिठाई।"),
-  generateBaseProduct("Lahsun Parmal",      "लहसुन परमल",         "other", false, "Garlic-flavoured parmal with a light crisp texture.", "हल्की कुरकुरी बनावट के साथ लहसुन परमल।"),
+  generateWeightProduct("Lahsun Parmal",      "लहसुन परमल",         "other", "500gm", 60, false, "Garlic-flavoured parmal with a light crisp texture.", "हल्की कुरकुरी बनावट के साथ लहसुन परमल।"),
   generateBaseProduct("Star Gadiya",        "स्टार गड़िया",       "other", false, "Crunchy traditional snack with a playful shape.", "एक मज़ेदार आकार के साथ कुरकुरा पारंपरिक स्नैक।"),
-  generateBaseProduct("Rajgira Gud Patti Round",   "राजगिरा गुड़ पट्टी गोल", "other", false, "Round rajgira brittle with the same classic taste.", "उसी क्लासिक स्वाद के साथ गोल राजगिरा पट्टी।"),
-  generateBaseProduct("Rajgira Gud Patti Square",  "राजगिरा गुड़ पट्टी चौकोर", "other", false, "Square-cut rajgira brittle for easy snacking.", "आसान स्नैकिंग के लिए चौकोर कटी राजगिरा पट्टी।"),
-  generateBaseProduct("Salted Parmal",             "नमकीन परमल",         "other", false, "Light salted parmal ideal for everyday munching.", "रोज़ाना मुँह चलाने के लिए हल्का नमकीन परमल।"),
-  generateBaseProduct("Agra Petha",         "आगरा पेठा",          "other", false, "Classic Agra petha with a soft sweet bite.", "मुलायम मीठे स्वाद के साथ क्लासिक आगरा पेठा।"),
-  generateBaseProduct("Gud Patti Round",   "गुड़ पट्टी गोल",     "other", false, "Round jaggery brittle for a classic sweet crunch.", "क्लासिक मीठे कुरकुराहट के लिए गोल गुड़ पट्टी।"),
-  generateBaseProduct("Gud Patti Square",  "गुड़ पट्टी चौकोर",   "other", false, "Square-cut jaggery brittle for a perfectly balanced bite.", "एकदम संतुलित स्वाद के लिए चौकोर कटी गुड़ पट्टी।"),
-  generateBaseProduct("Chana Jor Garam",   "चना जोर गरम",        "other", true,  "Flat roasted gram with tangy spices.", "तीखे मसालों के साथ चपटे भुने चने।"),
+  generateWeightProduct("Rajgira Gud Patti Round",   "राजगिरा गुड़ पट्टी गोल", "other", "200gm", 50, false, "Round rajgira brittle with the same classic taste.", "उसी क्लासिक स्वाद के साथ गोल राजगिरा पट्टी।"),
+  generateWeightProduct("Rajgira Gud Patti Square",  "राजगिरा गुड़ पट्टी चौकोर", "other", "200gm", 50, false, "Square-cut rajgira brittle for easy snacking.", "आसान स्नैकिंग के लिए चौकोर कटी राजगिरा पट्टी।"),
+  generateWeightProduct("Salted Parmal",             "नमकीन परमल",         "other", "500gm", 60, false, "Light salted parmal ideal for everyday munching.", "रोज़ाना मुँह चलाने के लिए हल्का नमकीन परमल।"),
+  generateWeightProduct("Gud Patti Round",   "गुड़ पट्टी गोल",     "other", "200gm", 50, false, "Round jaggery brittle for a classic sweet crunch.", "क्लासिक मीठे कुरकुराहट के लिए गोल गुड़ पट्टी।"),
+  generateWeightProduct("Gud Patti Square",  "गुड़ पट्टी चौकोर",   "other", "200gm", 50, false, "Square-cut jaggery brittle for a perfectly balanced bite.", "एकदम संतुलित स्वाद के लिए चौकोर कटी गुड़ पट्टी।"),
+  generateWeightProduct("Chana Jor Garam",   "चना जोर गरम",        "other", "200gm", 50, true,  "Flat roasted gram with tangy spices.", "तीखे मसालों के साथ चपटे भुने चने।"),
   generateBaseProduct("Shahi Sohan Papdi", "शाही सोहन पापड़ी",   "other", true,  "Flaky, melt-in-the-mouth traditional sweet.", "परतदार, मुँह में पिघलने वाली पारंपरिक मिठाई।"),
 ];
 

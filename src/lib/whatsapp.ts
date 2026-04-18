@@ -1,10 +1,14 @@
-import { CartItem } from "@/context/CartContext";
-import { formatPrice } from "@/lib/utils";
-import { bLang } from "@/lib/language-utils";
-import { SITE_CONFIG } from "@/lib/constants";
-import { BilingualString } from "@/types/product";
+export interface UserContactDetails {
+  name: string;
+  phone: string;
+  location: string;
+}
 
-export function generateWhatsAppCartMessage(cartItems: CartItem[], lang: "en" | "hi"): string {
+export function generateWhatsAppCartMessage(
+  cartItems: CartItem[], 
+  lang: "en" | "hi",
+  userDetails?: UserContactDetails
+): string {
   if (cartItems.length === 0) return "";
 
   const grandTotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -23,6 +27,14 @@ export function generateWhatsAppCartMessage(cartItems: CartItem[], lang: "en" | 
     message += `💰 कुल राशि: ${formatPrice(grandTotal)}\n`;
     message += `💳 भुगतान: व्हाट्सएप पर पुष्टि करें\n`;
     message += `----------------------\n\n`;
+
+    if (userDetails) {
+      message += `📝 ग्राहक विवरण:\n`;
+      message += `👤 नाम: ${userDetails.name}\n`;
+      message += `📞 फोन: ${userDetails.phone}\n`;
+      message += `📍 स्थान: ${userDetails.location}\n\n`;
+    }
+
     message += "कृपया उपलब्धता और डिलीवरी की जानकारी दें।";
     
     return encodeURIComponent(message);
@@ -42,6 +54,14 @@ export function generateWhatsAppCartMessage(cartItems: CartItem[], lang: "en" | 
   message += `💰 Total Amount: ${formatPrice(grandTotal)}\n`;
   message += `💳 Payment: Confirm on WhatsApp\n`;
   message += `----------------------\n\n`;
+
+  if (userDetails) {
+    message += `📝 Customer Details:\n`;
+    message += `👤 Name: ${userDetails.name}\n`;
+    message += `📞 Phone: ${userDetails.phone}\n`;
+    message += `📍 Location: ${userDetails.location}\n\n`;
+  }
+
   message += "Please confirm availability and delivery details.";
   
   return encodeURIComponent(message);
@@ -52,7 +72,8 @@ export function generateWhatsAppSingleProductMessage(
   weight: string,
   price: number,
   quantity: number,
-  lang: "en" | "hi"
+  lang: "en" | "hi",
+  userDetails?: UserContactDetails
 ): string {
   const lineTotal = price * quantity;
   const header = lang === "hi" ? "🛒 सिंगल प्रोडक्ट ऑर्डर" : "🛒 Single Product Order";
@@ -73,13 +94,26 @@ export function generateWhatsAppSingleProductMessage(
   const paymentVal = lang === "hi" ? "व्हाट्सएप पर पुष्टि करें" : "Confirm on WhatsApp";
   message += `${paymentLabel}: ${paymentVal}\n`;
   message += `----------------------\n\n`;
+
+  if (userDetails) {
+    const detailHeader = lang === "hi" ? "📝 ग्राहक विवरण" : "📝 Customer Details";
+    const nameLabel = lang === "hi" ? "नाम" : "Name";
+    const phoneLabel = lang === "hi" ? "फोन" : "Phone";
+    const locLabel = lang === "hi" ? "स्थान" : "Location";
+    
+    message += `${detailHeader}:\n`;
+    message += `👤 ${nameLabel}: ${userDetails.name}\n`;
+    message += `📞 ${phoneLabel}: ${userDetails.phone}\n`;
+    message += `📍 ${locLabel}: ${userDetails.location}\n\n`;
+  }
+
   message += footer;
 
   return encodeURIComponent(message);
 }
 
-export function getCartCheckoutUrl(cartItems: CartItem[], lang: "en" | "hi"): string {
-  const encoded = generateWhatsAppCartMessage(cartItems, lang);
+export function getCartCheckoutUrl(cartItems: CartItem[], lang: "en" | "hi", userDetails?: UserContactDetails): string {
+  const encoded = generateWhatsAppCartMessage(cartItems, lang, userDetails);
   return `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encoded}`;
 }
 
@@ -88,9 +122,10 @@ export function getSingleProductCheckoutUrl(
   weight: string,
   price: number,
   quantity: number,
-  lang: "en" | "hi"
+  lang: "en" | "hi",
+  userDetails?: UserContactDetails
 ): string {
-  const encoded = generateWhatsAppSingleProductMessage(productName, weight, price, quantity, lang);
+  const encoded = generateWhatsAppSingleProductMessage(productName, weight, price, quantity, lang, userDetails);
   return `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encoded}`;
 }
 

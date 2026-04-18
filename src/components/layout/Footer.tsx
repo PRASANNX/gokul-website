@@ -136,11 +136,16 @@ export default function Footer() {
                   {SITE_CONFIG.address}
                 </span>
               </li>
-              <li className="flex flex-col gap-1">
+              <li className="flex flex-col gap-3">
                 <span className="text-[14px] text-white/30 uppercase font-bold tracking-widest">{messages.footer.direct}</span>
-                <a href={`tel:${SITE_CONFIG.phone}`} className="font-sans text-[16px] text-white font-bold hover:text-brand-crimson transition-colors lining-nums">
-                  {SITE_CONFIG.phone}
-                </a>
+                <div className="flex flex-col gap-2">
+                  <a href={`tel:${SITE_CONFIG.phone}`} className="font-sans text-[16px] text-white font-bold hover:text-brand-crimson transition-colors lining-nums">
+                    {SITE_CONFIG.phone}
+                  </a>
+                  <a href={`tel:${SITE_CONFIG.phoneSecondary}`} className="font-sans text-[16px] text-white font-bold hover:text-brand-crimson transition-colors lining-nums">
+                    {SITE_CONFIG.phoneSecondary}
+                  </a>
+                </div>
               </li>
             </ul>
           </div>

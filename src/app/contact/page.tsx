@@ -75,6 +75,7 @@ export default function ContactPage() {
                 {[
                   { title: messages.contact.addressLabel, detail: SITE_CONFIG.address, label: "Address" },
                   { title: messages.contact.phoneLabel, detail: SITE_CONFIG.phone, label: "Phone", href: `tel:${SITE_CONFIG.phone}` },
+                  { title: messages.contact.phoneLabel + " 2", detail: SITE_CONFIG.phoneSecondary, label: "Phone 2", href: `tel:${SITE_CONFIG.phoneSecondary}` },
                   { title: messages.contact.emailLabel, detail: SITE_CONFIG.email, label: "Email", href: `mailto:${SITE_CONFIG.email}` },
                 ].map((c, i) => (
                   <motion.div 

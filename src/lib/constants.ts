@@ -5,8 +5,10 @@ export const SITE_CONFIG = {
   description:
     "100% Pure, Hygienically Packed, Homemade Taste Namkeen from Indore. Authentic handcrafted snacks made with pure ingredients and traditional recipes.",
   whatsapp: "917067888457",
+  whatsappSecondary: "918889964977",
   whatsappMessage: "नमस्ते! मुझे आपके नमकीन के बारे में जानकारी चाहिए",
   phone: "+91 70678 88457",
+  phoneSecondary: "+91 88899 64977",
   email: "contact@gokulnamkeen.com",
   address: "542/7, Nehru Nagar, Indore, MP 452011",
   established: "1996",
